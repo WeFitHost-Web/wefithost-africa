@@ -6,6 +6,9 @@ import { TestimonialSlider } from "../components/TestimonialSlider";
 import { DomainSearch } from "../components/DomainSearch";
 import { FloatingImage } from "../components/FloatingImage";
 
+// Updated stable video link
+const heroVideo =
+  "https://videos.pexels.com/video-files/3129957/3129957-uhd_2560_1440_25fps.mp4";
 const heroImg =
   "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop";
 
@@ -43,77 +46,90 @@ const Home = () => {
       id: 1,
       question: "Can I pay in Nigerian Naira or other local currencies?",
       answer:
-        "Absolutely. We integrate with major local payment gateways like Flutterwave and Paystack to ensure you can pay in Naira, Kenyan Shillings, or South African Rand without worrying about dollar exchange rates. This allows for seamless billing and avoids the complications of international transaction limits on your local cards.",
+        "Absolutely. We integrate with major local payment gateways like Flutterwave and Paystack to ensure you can pay in Naira...",
     },
     {
       id: 2,
       question: "Where exactly are your servers located?",
       answer:
-        "We utilize a strategic network of dedicated edge nodes located in Lagos, Johannesburg, and Nairobi to provide the lowest possible latency for African users. By keeping your data closer to your audience, we ensure significantly faster load times compared to traditional US or European hosting. Our infrastructure is specifically optimized for the unique routing challenges of the continent's ISP networks.",
+        "We utilize a strategic network of dedicated edge nodes located in Lagos, Johannesburg, and Nairobi...",
     },
     {
       id: 3,
       question: "Do you offer free migrations from my current host?",
       answer:
-        "Yes, our technical team provides a white-glove migration service at no additional cost to move your existing website over to WefitHost. We handle the entire process including database transfers and email configurations to ensure there is zero downtime during the transition. Once you sign up, simply open a ticket and our experts will begin the transfer within hours.",
+        "Yes, our technical team provides a white-glove migration service at no additional cost...",
     },
     {
       id: 4,
       question: "What kind of support can I expect if I run into issues?",
       answer:
-        "We provide 24/7 priority support through multiple channels, including live chat, email, and a local ticketing system. Our support engineers are well-versed in the specific technical needs of the African market and are always ready to help with server configurations or site optimizations. You are never alone; we pride ourselves on a response time that averages under 15 minutes.",
+        "We provide 24/7 priority support through multiple channels, including live chat, email, and local ticketing...",
     },
   ];
 
   return (
     <div className="font-sans selection:bg-indigo-500 selection:text-white">
-      {/* 1. Hero Section (DARK) */}
-      <section className="bg-[#0b1120] relative pt-20 pb-32 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+      {/* 1. Hero Section */}
+      <section className="relative pt-20 pb-32 overflow-hidden min-h-[85vh] flex items-center bg-[#0b1120]">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute top-0 left-0 w-full h-full object-cover z-0"
+        >
+          <source src={heroVideo} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-[#0b1120]/70 via-[#0b1120]/90 to-[#0b1120] z-10" />
+
+        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center relative z-20">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
             <h1 className="text-5xl md:text-7xl font-black text-white tracking-tighter leading-[1.1] mb-6">
-              Global Speed. <br />
+              Global Speed. <br />{" "}
               <span className="text-indigo-500 italic">African Heart.</span>
             </h1>
-            <p className="text-slate-400 text-lg md:text-xl leading-relaxed mb-10 max-w-lg font-medium">
+            <p className="text-slate-300 text-lg md:text-xl leading-relaxed mb-10 max-w-lg font-medium">
               Experience hosting built for the continent. Deploy in seconds on
               infrastructure optimized for Lagos, Nairobi, and Johannesburg.
             </p>
             <div className="flex flex-wrap gap-4">
-              <button className="bg-indigo-600 hover:bg-indigo-500 text-white px-8 py-4 rounded-2xl font-bold text-sm shadow-xl shadow-indigo-500/20 transition-all">
+              <button className="bg-indigo-600 hover:bg-indigo-500 text-white px-8 py-4 rounded-2xl font-bold text-sm shadow-xl shadow-indigo-500/40 transition-all active:scale-95">
                 Get Started Now
               </button>
-              <button className="bg-slate-800 text-white border border-slate-700 px-8 py-4 rounded-2xl font-bold text-sm hover:bg-slate-700 transition-all">
+              <button className="bg-white/10 text-white border border-white/20 backdrop-blur-md px-8 py-4 rounded-2xl font-bold text-sm hover:bg-white/20 transition-all active:scale-95">
                 View All Plans
               </button>
             </div>
           </motion.div>
+
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1 }}
+            className="hidden lg:block"
           >
             <FloatingImage src={heroImg} alt="WefitHost Interface" />
           </motion.div>
         </div>
       </section>
 
-      {/* 2. Domain Search (Overlaps Dark/Light) */}
+      {/* 2. Domain Search */}
       <section className="bg-[#0b1120] relative pb-20 px-6">
         <div className="relative z-10">
           <DomainSearch />
         </div>
       </section>
 
-      {/* 3. Stats Section (SOOTHING LIGHT BLUE/GRAY) */}
+      {/* 3. Stats Section */}
       <section className="bg-slate-50 py-24 border-y border-slate-200">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8">
-          {/* Note: I'm assuming StatCard handles its own dark/light mode, 
-                but you can pass a 'light' prop if needed */}
           <StatCard
             label="Network Uptime"
             value="99.99%"
@@ -132,7 +148,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* 4. Pricing Section (DARK BLUE) */}
+      {/* 4. Pricing Section (EQUAL HEIGHT FIXED) */}
       <section className="bg-[#0b1120] py-32">
         <div className="max-w-7xl mx-auto px-6 text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-black text-white tracking-tighter mb-4">
@@ -142,7 +158,7 @@ const Home = () => {
             Transparent billing in your local currency.
           </p>
         </div>
-        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-8 items-center">
+        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-8 items-stretch">
           <PricingCard
             plan="Starter"
             price="2,500"
@@ -164,12 +180,13 @@ const Home = () => {
         </div>
       </section>
 
-      {/* 5. Testimonials (DARK BLUE - Subtle transition) */}
+      {/* 5. Testimonials Section (EQUAL HEIGHT) */}
       <section className="bg-[#0b1120] pb-32">
-        <TestimonialSlider testimonials={testimonials} />
+        <div className="max-w-7xl mx-auto px-6">
+          <TestimonialSlider testimonials={testimonials} />
+        </div>
       </section>
-
-      {/* FAQ Section in Home.jsx */}
+      {/* 6. FAQ Section */}
       <section className="bg-slate-50 py-32">
         <div className="max-w-4xl mx-auto px-6">
           <div className="text-center mb-12">
@@ -177,21 +194,20 @@ const Home = () => {
               Common Questions
             </h2>
           </div>
-
           <div className="bg-white border border-slate-200 shadow-sm rounded-[2rem] p-4">
             {faqData.map((item) => (
               <FAQItem
                 key={item.id}
                 question={item.question}
                 answer={item.answer}
-                dark={false} // Set to true if using this on a dark background
+                dark={false}
               />
             ))}
           </div>
         </div>
       </section>
 
-      {/* 7. Final Call to Action (VIBRANT) */}
+      {/* 7. Final Call to Action */}
       <section className="bg-white py-24 px-6">
         <motion.div
           whileInView={{ opacity: 1, y: 0 }}

@@ -60,7 +60,7 @@ const Footer = () => {
               <li><Link to="/contact" className="hover:text-indigo-400 transition-colors">Contact Support</Link></li>
               <li>
                 <a href="https://wefithost.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-indigo-400 hover:text-indigo-300 font-medium group text-sm">
-                  Main Website <span className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">↗</span>
+                  WefitHost UK<span className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">↗</span>
                 </a>
               </li>
             </ul>
