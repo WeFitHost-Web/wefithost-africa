@@ -11,9 +11,9 @@ export const DomainSearch = () => (
       </button>
     </div>
     <div className="flex justify-center gap-6 mt-6 text-[10px] font-black uppercase tracking-[0.2em] text-slate-500">
-      <span className="hover:text-indigo-400 cursor-default">.africa - ₦12,000</span>
-      <span className="hover:text-indigo-400 cursor-default">.ng - ₦5,000</span>
-      <span className="hover:text-indigo-400 cursor-default">.com - ₦15,000</span>
+      <span className="hover:text-indigo-400 cursor-default">.africa</span>
+      <span className="hover:text-indigo-400 cursor-default">.ng</span>
+      <span className="hover:text-indigo-400 cursor-default">.com</span>
     </div>
   </div>
 );
