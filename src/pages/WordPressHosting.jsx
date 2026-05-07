@@ -116,7 +116,7 @@ const WordPressHosting = () => {
                       onClick={() => setActiveModal({ title: `${sample.name} - Admin Dashboard`, url: sample.dashboardUrl })}
                       className="bg-white p-4 rounded-2xl text-indigo-600 shadow-xl hover:scale-110 transition-transform flex items-center gap-2 font-bold"
                     >
-                      <Eye size={20} /> View
+                      <Eye size={20} /> View More
                     </button>
                   </div>
                 </div>
@@ -133,7 +133,63 @@ const WordPressHosting = () => {
         </div>
       </section>
 
-     
+      {/* 3. Pricing: Navy Background */}
+      <section className="py-32 bg-[#0b1120]">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-black text-white mb-6">Optimized WooCommerce Hosting</h2>
+            <div className="mt-12 inline-flex bg-slate-800 p-1 rounded-2xl">
+              <button onClick={() => setIsYearly(false)} className={`px-8 py-2 rounded-xl text-sm font-bold transition-all ${!isYearly ? 'bg-indigo-600 text-white' : 'text-slate-400'}`}>Monthly</button>
+              <button onClick={() => setIsYearly(true)} className={`px-8 py-2 rounded-xl text-sm font-bold transition-all ${isYearly ? 'bg-indigo-600 text-white' : 'text-slate-400'}`}>Yearly (-20%)</button>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {wpPlans.map((plan, i) => (
+              <PricingCard key={i} {...plan} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 4. Infrastructure/Carousel */}
+      <section className="py-32 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center">
+          <ImageCarousel slides={stagingSlides} />
+          <div>
+            <h2 className="text-4xl font-black text-slate-900 mb-8 leading-tight">
+              One-Click Staging. <br />
+              <span className="text-indigo-600">No Risk, All Growth.</span>
+            </h2>
+            <p className="text-slate-500 mb-8 text-lg leading-relaxed">
+              Never break your live site again. Our staging tool allows you to create an 
+              exact copy of your site to test new WooCommerce plugins or design updates.
+            </p>
+            <div className="space-y-4">
+              {[
+                { icon: <Terminal size={18}/>, text: "WP-CLI & SSH Access" },
+                { icon: <ShoppingCart size={18}/>, text: "E-commerce Optimized NVMe" },
+                { icon: <Globe2 size={18}/>, text: "Free .com / .africa Domain" }
+              ].map((item, i) => (
+                <div key={i} className="flex items-center gap-4 text-slate-800 font-bold">
+                  <div className="text-indigo-600">{item.icon}</div>
+                  {item.text}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. CTA */}
+      <section className="py-24 px-6">
+        <div className="max-w-6xl mx-auto bg-indigo-600 rounded-[4rem] p-16 text-center text-white relative overflow-hidden shadow-2xl">
+          <h2 className="text-4xl md:text-5xl font-black mb-8 italic">Supercharge Your WordPress Today</h2>
+          <button className="bg-white text-indigo-600 px-12 py-5 rounded-2xl font-black uppercase tracking-widest text-sm hover:scale-105 transition-all">Get Started</button>
+          <Globe2 size={400} className="absolute -right-20 -bottom-20 opacity-10 pointer-events-none" />
+        </div>
+      </section>
+
       {/* Popup Modal Component */}
       <WPModal 
         isOpen={!!activeModal} 
