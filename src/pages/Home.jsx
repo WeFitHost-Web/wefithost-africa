@@ -18,7 +18,7 @@ const Home = () => {
     "24/7 Priority Support",
   ];
 
-  // 1. Array of Objects for Pricing
+ 
   const pricingPlans = [
     {
       plan: "Starter",
@@ -83,7 +83,7 @@ const Home = () => {
 
   return (
     <div className="font-sans selection:bg-indigo-500 selection:text-white">
-      {/* 1. Hero Section */}
+      {/*Hero Section */}
       <section className="relative pt-20 pb-32 overflow-hidden min-h-[85vh] flex items-center bg-[#0b1120]">
         <video
           autoPlay
@@ -129,14 +129,14 @@ const Home = () => {
         </div>
       </section>
 
-      {/* 2. Domain Search */}
+      {/* Domain Search */}
       <section className="bg-[#0b1120] relative pb-20 px-6">
         <div className="relative z-10">
           <DomainSearch />
         </div>
       </section>
 
-      {/* 3. Stats Section */}
+      {/* Stats Section */}
       <section className="bg-slate-50 py-24 border-y border-slate-200">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8">
           <StatCard label="Network Uptime" value="99.99%" subtext="Enterprise-grade reliability" />
@@ -145,7 +145,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* 4. Pricing Section - Refined with .map() */}
+      {/* Pricing Section - Refined with .map() */}
       <section className="bg-[#0b1120] py-32">
         <div className="max-w-7xl mx-auto px-6 text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-black text-white tracking-tighter mb-4">
@@ -168,14 +168,14 @@ const Home = () => {
         </div>
       </section>
 
-      {/* 5. Testimonials Section */}
+      {/* Testimonials Section */}
       <section className="bg-[#0b1120] pb-32">
         <div className="max-w-7xl mx-auto px-6">
           <TestimonialSlider testimonials={testimonials} />
         </div>
       </section>
 
-      {/* 6. FAQ Section */}
+      {/* FAQ Section */}
       <section className="bg-slate-50 py-32">
         <div className="max-w-4xl mx-auto px-6">
           <div className="text-center mb-12">
@@ -196,7 +196,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* 7. Final CTA */}
+      {/* Final CTA */}
       <section className="bg-white py-24 px-6">
         <motion.div
           whileInView={{ opacity: 1, y: 0 }}

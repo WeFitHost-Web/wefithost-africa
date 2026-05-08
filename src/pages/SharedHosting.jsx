@@ -38,7 +38,7 @@ const SharedHosting = () => {
   return (
     <div className="font-sans bg-white text-slate-700">
       
-      {/* 1. Hero Section with Background Image & Translucent Blur */}
+      {/* Hero Section with Background Image & Translucent Blur */}
       <section className="relative pt-40 pb-32 overflow-hidden min-h-[70vh] flex items-center">
         {/* Background Image Layer */}
         <div 
@@ -69,7 +69,7 @@ const SharedHosting = () => {
         </div>
       </section>
 
-      {/* 2. Pricing Section: UNIFORM DARK CARDS */}
+      {/* Pricing Section: UNIFORM DARK CARDS */}
       <section className="py-32 bg-[#0b1120]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
@@ -88,7 +88,7 @@ const SharedHosting = () => {
         </div>
       </section>
 
-      {/* 3. Infrastructure & Carousel Section */}
+      {/* Infrastructure & Carousel Section */}
       <section className="py-32 bg-slate-50">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-20 items-center">
@@ -116,7 +116,7 @@ const SharedHosting = () => {
         </div>
       </section>
 
-      {/* 4. Comparison Table (Light/Modern) */}
+      {/* Comparison Table (Light/Modern) */}
       <section className="py-24 bg-white px-6">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl font-black text-center mb-12 text-slate-900">Compare Plans</h2>
@@ -150,7 +150,7 @@ const SharedHosting = () => {
         </div>
       </section>
 
-      {/* 5. Final CTA */}
+      {/* Final CTA */}
       <section className="py-32 px-6">
         <div className="max-w-6xl mx-auto bg-indigo-600 rounded-[4rem] p-20 text-center text-white relative overflow-hidden">
           <div className="relative z-10">

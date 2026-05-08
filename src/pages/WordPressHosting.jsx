@@ -60,7 +60,7 @@ const WordPressHosting = () => {
   return (
     <div className="font-sans text-slate-700 bg-white">
       
-      {/* 1. Hero: Popups Removed */}
+      {/* Hero: Popups Removed */}
       <section className="relative pt-40 pb-32 overflow-hidden flex items-center min-h-[70vh]">
         <div 
           className="absolute inset-0 z-0 bg-cover bg-center"
@@ -93,7 +93,7 @@ const WordPressHosting = () => {
         </div>
       </section>
 
-      {/* 2. NEW SECTION: WordPress Samples with Popups */}
+      {/* WordPress Samples with Popups */}
       <section className="py-32 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="mb-16">
@@ -133,7 +133,7 @@ const WordPressHosting = () => {
         </div>
       </section>
 
-      {/* 3. Pricing: Navy Background */}
+      {/* Pricing: Navy Background */}
       <section className="py-32 bg-[#0b1120]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
@@ -152,7 +152,7 @@ const WordPressHosting = () => {
         </div>
       </section>
 
-      {/* 4. Infrastructure/Carousel */}
+      {/* Infrastructure/Carousel */}
       <section className="py-32 bg-slate-50">
         <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center">
           <ImageCarousel slides={stagingSlides} />
@@ -181,7 +181,7 @@ const WordPressHosting = () => {
         </div>
       </section>
 
-      {/* 5. CTA */}
+      {/* CTA */}
       <section className="py-24 px-6">
         <div className="max-w-6xl mx-auto bg-indigo-600 rounded-[4rem] p-16 text-center text-white relative overflow-hidden shadow-2xl">
           <h2 className="text-4xl md:text-5xl font-black mb-8 italic">Supercharge Your WordPress Today</h2>
