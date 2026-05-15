@@ -13,6 +13,8 @@ import Domains from "./pages/Domains";
 import Services from "./pages/Services";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import Marketing from "./pages/Marketing";
+import DomainSearch from "./pages/DomainSearch";
 
 function App() {
   return (
@@ -37,13 +39,15 @@ function App() {
             <Route path="services" element={<Services />} />
             <Route path="about" element={<About />} />
             <Route path="contact" element={<Contact />} />
+            <Route path="marketing" element={<Marketing />} />
+            <Route path="domain-search" element={<DomainSearch />} />
 
             {/* Resource Routes [cite: 36, 57-60] */}
             <Route path="resources" element={<div>Resources Overview</div>} />
             <Route path="blog" element={<div>Blog Page</div>} />
           </Route>
 
-          {/* System Integration Redirects [cite: 40-41] */}
+       
           <Route
             path="login"
             element={<div>Redirecting to Existing System...</div>}

@@ -1,35 +1,37 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect } from "react";
 
 const CurrencyContext = createContext();
 
 export const currencies = {
-  GBP: { label: 'GBP (£)', symbol: '£', rate: 1, code: 'GBP' },
-  NGN: { label: 'NGN (₦)', symbol: '₦', rate: 1750, code: 'NGN' }, // Example: £1 = ₦1750
-  KES: { label: 'KES (KSh)', symbol: 'KSh', rate: 165, code: 'KES' },
-  ZAR: { label: 'ZAR (R)', symbol: 'R', rate: 23.5, code: 'ZAR' },
-  USD: { label: 'USD ($)', symbol: '$', rate: 1.25, code: 'USD' },
+  GBP: { label: "GBP (£)", symbol: "£", rate: 1, code: "GBP", locale: "en-GB" },
+  NGN: { label: "NGN (₦)", symbol: "₦", rate: 1750, code: "NGN", locale: "en-NG" },
+  KES: { label: "KES (KSh)", symbol: "KSh", rate: 165, code: "KES", locale: "en-KE" },
+  ZAR: { label: "ZAR (R)", symbol: "R", rate: 23.5, code: "ZAR", locale: "en-ZA" },
+  USD: { label: "USD ($)", symbol: "$", rate: 1.25, code: "USD", locale: "en-US" },
 };
 
 export const CurrencyProvider = ({ children }) => {
-  // Set default to GBP
   const [currency, setCurrency] = useState(currencies.GBP);
 
   useEffect(() => {
+    const hasDetected = sessionStorage.getItem("locationDetected");
+    if (hasDetected) return;
+
     const detectLocation = async () => {
       try {
-        const response = await fetch('https://ipapi.co/json/');
+        const response = await fetch("https://ipapi.co/json/");
         const data = await response.json();
-        
         const countryToCurrency = {
-          'GB': currencies.GBP,
-          'NG': currencies.NGN,
-          'KE': currencies.KES,
-          'ZA': currencies.ZAR,
-          'US': currencies.USD,
+          GB: currencies.GBP,
+          NG: currencies.NGN,
+          KE: currencies.KES,
+          ZA: currencies.ZAR,
+          US: currencies.USD,
         };
 
         if (countryToCurrency[data.country_code]) {
           setCurrency(countryToCurrency[data.country_code]);
+          sessionStorage.setItem("locationDetected", "true");
         }
       } catch (error) {
         console.error("IP Detection failed:", error);
@@ -46,3 +48,16 @@ export const CurrencyProvider = ({ children }) => {
 };
 
 export const useCurrency = () => useContext(CurrencyContext);
+
+// Shared formatter helper
+export const formatPrice = (gbpAmount, activeCurrency) => {
+  const numericAmount = typeof gbpAmount === 'string' ? parseFloat(gbpAmount) : gbpAmount;
+  const converted = numericAmount * activeCurrency.rate;
+
+  return new Intl.NumberFormat(activeCurrency.locale, {
+    style: 'currency',
+    currency: activeCurrency.code,
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  }).format(converted);
+};
