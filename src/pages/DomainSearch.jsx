@@ -71,7 +71,7 @@ const DomainSearchPage = () => {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Start typing your brand name..."
-              className="relative w-full bg-slate-900 border border-slate-800 p-6 md:p-8 rounded-[2.5rem] outline-none focus:ring-2 focus:ring-indigo-600 transition-all font-bold text-xl pr-20"
+              className="relative w-full bg-slate-900 border border-slate-800 p-3 md:p-5 rounded-[2.5rem] outline-none focus:ring-2 focus:ring-indigo-600 transition-all font-bold text-md pr-20"
             />
             <div className="absolute right-8 top-1/2 -translate-y-1/2">
               {isSearching ? (
