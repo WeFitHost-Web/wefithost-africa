@@ -68,7 +68,7 @@ const Navbar = () => {
                   <div className="space-y-6">
                     <h4 className="text-xs font-bold uppercase tracking-widest text-indigo-600">Advanced Infrastructure</h4>
                     <Link to="/hosting/vps" className="block group/item">
-                      <div className="text-slate-900 font-semibold group/item:text-indigo-600 transition-colors">Cloud VPS</div>
+                      <div className="text-slate-900 font-semibold group/item:text-indigo-600 transition-colors">VPS Hosting</div>
                       <p className="text-sm text-slate-500 mt-1">Dedicated resources and local Africa network nodes.</p>
                     </Link>
                     <Link to="/hosting/cloud" className="block group/item">
@@ -89,7 +89,9 @@ const Navbar = () => {
 
             <Link to="/domains" className="hover:text-indigo-400 transition-colors py-7">Domains</Link>
             <Link to="/services" className="hover:text-indigo-400 transition-colors py-7">Services</Link>
-            <Link to="/about" className="hover:text-indigo-400 transition-colors py-7">About</Link>
+            <Link to="/email" className="hover:text-indigo-400 transition-colors py-7">Email</Link>
+            <Link to="/pricing" className="hover:text-indigo-400 transition-colors py-7">Pricing</Link>
+            {/* <Link to="/about" className="hover:text-indigo-400 transition-colors py-7">About</Link> */}
           </div>
         </div>
 
