@@ -94,7 +94,7 @@ const Footer = () => {
     }, 5000);
   };
 
-  // Social links — now using react-icons components instead of Font Awesome classes
+  // Social links now using react-icons components instead of Font Awesome classes
   const socialLinks = [
     { name: "LinkedIn", Icon: FaLinkedinIn, href: "https://www.linkedin.com/company/wefithostofficial/" },
     { name: "Facebook", Icon: FaFacebookF, href: "https://www.facebook.com/share/19JUwmnhS8/" },

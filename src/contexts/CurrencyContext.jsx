@@ -51,13 +51,21 @@ export const useCurrency = () => useContext(CurrencyContext);
 
 // Shared formatter helper
 export const formatPrice = (gbpAmount, activeCurrency) => {
-  const numericAmount = typeof gbpAmount === 'string' ? parseFloat(gbpAmount) : gbpAmount;
+  if (!activeCurrency || typeof activeCurrency.rate === "undefined") {
+    return `£${gbpAmount}`;
+  }
+
+  const numericAmount = typeof gbpAmount === "string" ? parseFloat(gbpAmount) : gbpAmount;
   const converted = numericAmount * activeCurrency.rate;
 
+  // Currencies with larger conversions (like NGN/KES) usually hide decimals,
+  // while smaller unit currencies (USD/GBP) keep 2 decimal points for pricing plans.
+  const hasDecimals = converted < 100 && converted % 1 !== 0;
+
   return new Intl.NumberFormat(activeCurrency.locale, {
-    style: 'currency',
+    style: "currency",
     currency: activeCurrency.code,
-    minimumFractionDigits: 0,
-    maximumFractionDigits: 0,
+    minimumFractionDigits: hasDecimals ? 2 : 0,
+    maximumFractionDigits: hasDecimals ? 2 : 0,
   }).format(converted);
 };

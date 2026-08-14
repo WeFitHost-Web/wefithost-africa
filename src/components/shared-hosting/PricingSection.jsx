@@ -69,7 +69,6 @@ const plans = [
 
 const PricingSection = () => {
   const [isYearly, setIsYearly] = useState(false);
-  const { currency } = useCurrency();
 
   return (
     <section id="pricing" className="py-24 bg-[#0b1120]">
@@ -104,7 +103,7 @@ const PricingSection = () => {
           </div>
         </div>
 
-        {/* Pricing Cards - Swiper on mobile, grid on desktop */}
+        {/* Pricing Cards - Desktop Grid */}
         <div className="hidden md:grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {plans.map((plan, i) => (
             <PricingCard key={i} plan={plan} isYearly={isYearly} index={i} />
@@ -135,8 +134,9 @@ const PricingSection = () => {
 };
 
 const PricingCard = ({ plan, isYearly, index }) => {
+  const { currency } = useCurrency();
   const price = isYearly ? plan.yearlyPrice : plan.monthlyPrice;
-  
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -167,7 +167,7 @@ const PricingCard = ({ plan, isYearly, index }) => {
       <div className="p-6">
         <div className="text-center mb-6">
           <div className="text-4xl font-black text-white">
-            {formatPrice(price, 'GBP')}
+            {formatPrice(price, currency)}
             <span className="text-lg text-slate-400 font-normal">/mo</span>
           </div>
           <p className="text-slate-500 text-xs mt-1">
