@@ -1,53 +1,55 @@
-import React from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Autoplay } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/pagination';
-import { Star } from 'lucide-react';
-import { motion } from 'framer-motion';
+import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
+import { Star } from "lucide-react";
+import { motion } from "framer-motion";
 
 const testimonials = [
   {
-    sector: 'Marketing & Tech',
-    quote: "Since switching to WeFitHost's managed hosting, our  site loading improved by 60% and we've had zero downtime. Their support team has saved us countless hours troubleshooting WordPress issues.",
-    initials: 'OA',
-    name: 'Olumide Awosika',
-    role: 'Managing Director',
-    company: 'Vantage Pulse Media',
-    color: 'bg-indigo-500/20 text-indigo-400'
+    sector: "Fintech",
+    quote:
+      "Our fintech application required solid sub-20ms database queries. WeFitHost VPS knocked it out of the park, and their team has been responsive at every step.",
+    initials: "TO",
+    name: "Tunde Okafor",
+    role: "CTO",
+    company: "PaySwift Nigeria",
+    color: "bg-indigo-500/20 text-indigo-400",
   },
   {
-    sector: 'E-commerce Retail',
-    quote: "The automatic updates and security features give me peace of mind. When we had a traffic spike during Black Friday, our site handled it perfectly thanks to their scalable resources.",
-    initials: 'CN',
-    name: 'Chioma Nwachukwu',
-    role: 'Founder',
-    company: 'Asa Threads Hub',
-    color: 'bg-emerald-500/20 text-emerald-400'
+    sector: "Enterprise IT",
+    quote:
+      "We switched our heavy multi-tenant ERP platform from an overseas provider to local VPS. Performance doubled and our hosting bills were cut in half.",
+    initials: "AE",
+    name: "Amara Eze",
+    role: "Director of IT",
+    company: "SabiGroup",
+    color: "bg-emerald-500/20 text-emerald-400",
   },
   {
-    sector: 'Media & Publishing',
-    quote: "As someone who's not technical, managed hosting was the perfect choice. The migration was seamless and now I don't have to worry about updates or security it's all handled for me.",
-    initials: 'AB',
-    name: 'Aminu Bello',
-    role: 'Editor & Creator',
-    company: 'The Echo Digest',
-    color: 'bg-amber-500/20 text-amber-400'
-  }
+    sector: "Technology",
+    quote:
+      "The deployment was instant and having a local IP has significantly boosted our local SEO presence. Root access without restricted kernels made it an easy choice.",
+    initials: "CK",
+    name: "Chidi Kalu",
+    role: "Founder",
+    company: "AfroTech Solutions",
+    color: "bg-amber-500/20 text-amber-400",
+  },
 ];
 
-const WPTestimonials = () => {
+const VPSTestimonials = () => {
   return (
     <section className="py-24 bg-[#1e293b]">
       <div className="max-w-7xl mx-auto px-6">
-        
         {/* Header */}
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-black text-white mb-4 tracking-tight">
             What Our Customers Say
           </h2>
           <p className="text-slate-400 max-w-2xl mx-auto">
-            Don't just take our word for it hear from African businesses and creators that switched to our managed hosting.
+            Don't just take our word for it hear from African businesses and developers running on our VPS infrastructure.
           </p>
         </div>
 
@@ -67,7 +69,7 @@ const WPTestimonials = () => {
         >
           {testimonials.map((t, i) => (
             <SwiperSlide key={i} className="h-auto">
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -101,7 +103,7 @@ const WPTestimonials = () => {
                   <div>
                     <h4 className="text-slate-900 font-bold text-sm">{t.name}</h4>
                     <p className="text-slate-500 text-xs">
-                      <span className="font-medium text-slate-700">{t.role}</span> at{' '}
+                      <span className="font-medium text-slate-700">{t.role}</span> at{" "}
                       <span className="text-[#6b63ff] font-semibold">{t.company}</span>
                     </p>
                   </div>
@@ -110,10 +112,9 @@ const WPTestimonials = () => {
             </SwiperSlide>
           ))}
         </Swiper>
-
       </div>
     </section>
   );
 };
 
-export default WPTestimonials;
+export default VPSTestimonials;

@@ -23,8 +23,14 @@
     color: rgba(255,255,255,0.75);
     font-size: 0.875rem;
     font-weight: 500;
+    white-space: nowrap; /* Prevent icon/text split */
 }
-.trust-item i { color: #4f46e5; font-size: 1rem; }
+.trust-item svg,
+.trust-item i { 
+    color: #4f46e5; 
+    font-size: 1rem;
+    flex-shrink: 0;
+}
 
 /* ── Main Footer ── */
 .mainfooterstart {
@@ -32,28 +38,25 @@
     color: white;
     padding-top: 4rem;
     padding-bottom: 2.5rem;
-    overflow-x: hidden; /* safety net so a stray overflow can't widen the page */
+    overflow-x: hidden;
 }
 
 /* ── Footer Grid ── */
 .footer-grid {
     display: grid;
-    /* minmax(0, ...) lets tracks shrink below their content's natural width
-       instead of blowing out past the container (this was the root cause) */
     grid-template-columns: minmax(0, 1.5fr) repeat(4, minmax(0, 1fr));
     gap: 2.5rem 2rem;
     margin-bottom: 3rem;
     width: 100%;
 }
 
-/* Make Newsletter section span 2 rows on Desktop */
 .newsletter-section {
     grid-row: 1 / span 2;
-    min-width: 0; /* allow this column to shrink instead of forcing the grid wider */
+    min-width: 0;
 }
 
 .footer-column {
-    min-width: 0; /* same fix for every column */
+    min-width: 0;
 }
 
 /* ── Newsletter Column (Left) ── */
@@ -73,7 +76,11 @@
     align-items: center;
     gap: 0.5rem;
 }
-.newsletter-section .company-tagline i { color: #4f46e5; }
+.newsletter-section .company-tagline svg,
+.newsletter-section .company-tagline i { 
+    color: #4f46e5; 
+    flex-shrink: 0;
+}
 .newsletter-section .company-desc {
     color: rgba(255,255,255,0.75);
     font-size: 0.85rem;
@@ -102,6 +109,12 @@
     border: 1px solid rgba(255,255,255,0.06);
     transition: all 0.25s ease;
     white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+.payment-icon svg {
+    flex-shrink: 0;
 }
 .payment-icon:hover {
     background-color: rgba(255,255,255,0.15);
@@ -121,13 +134,12 @@
     border-radius: 0.5rem;
     overflow: hidden;
     margin-bottom: 0.75rem;
-    min-width: 0; /* let the flex row shrink to its column width */
+    min-width: 0;
     width: 100%;
 }
 .newsletter-input {
     flex: 1 1 auto;
-    min-width: 0; /* the missing piece — flex:1 items don't shrink below their
-                     default intrinsic size (~size=20) without this */
+    min-width: 0;
     border: 1px solid rgba(255,255,255,0.15);
     border-right: none;
     color: white;
@@ -178,7 +190,7 @@
     color: white;
     width: 36px;
     height: 36px;
-    min-width: 36px; /* keep the circle from being squashed by flex-shrink */
+    min-width: 36px;
     border-radius: 50%;
     display: inline-flex;
     align-items: center;
@@ -189,15 +201,13 @@
     font-size: 0.9rem;
     flex-shrink: 0;
 }
+.social-icon svg,
 .social-icon i {
     line-height: 1;
     color: inherit;
+    flex-shrink: 0;
 }
 .social-icon:hover { transform: translateY(-3px); }
-.social-icon:hover .fa-facebook-f { color: #1877f2; }
-.social-icon:hover .fa-x-twitter { color: #000000; }
-.social-icon:hover .fa-instagram { color: #e4405f; }
-.social-icon:hover .fa-linkedin-in { color: #0a66c2; }
 
 /* ── Footer Headings ── */
 .footer-heading {
@@ -206,8 +216,14 @@
     font-size: 0.95rem;
     margin-bottom: 1.25rem;
     position: relative;
-    display: inline-block;
+    display: flex; /* Changed to flex to keep icon & title inline */
+    align-items: center;
     letter-spacing: 0.01em;
+    white-space: nowrap;
+}
+.footer-heading > span:first-child {
+    display: inline-flex;
+    align-items: center;
 }
 .footer-heading::after {
     content: '';
@@ -236,19 +252,38 @@
     align-items: center;
     gap: 0.5rem;
     padding: 0.15rem 0;
+    white-space: nowrap; /* Prevents text from dropping below the icon */
 }
 .footer-link:hover {
     color: white;
     transform: translateX(4px);
 }
+.footer-link svg,
 .footer-link i {
-    font-size: 0.75rem;
+    font-size: 0.85rem;
     width: 16px;
     text-align: center;
     color: rgba(255,255,255,0.75);
     transition: color 0.25s ease;
+    flex-shrink: 0; /* Ensures the icon never squashes or wraps */
 }
+.footer-link:hover svg,
 .footer-link:hover i { color: #4f46e5; }
+
+/* ── External Indicator Fix ── */
+.external-indicator {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.65rem;
+    opacity: 0.5;
+    margin-left: 0.25rem;
+    flex-shrink: 0;
+}
+.external-indicator svg,
+.external-indicator i {
+    width: auto;
+    font-size: 0.65rem;
+}
 
 /* ── Footer Divider ── */
 .footer-divider {
@@ -272,8 +307,10 @@
     display: flex;
     align-items: center;
     gap: 0.35rem;
+    white-space: nowrap;
 }
-.copyright-text i { font-size: 0.75rem; }
+.copyright-text svg,
+.copyright-text i { font-size: 0.75rem; flex-shrink: 0; }
 .footer-legal-links {
     display: flex;
     flex-wrap: wrap;
@@ -290,9 +327,11 @@
     display: flex;
     align-items: center;
     gap: 0.35rem;
+    white-space: nowrap;
 }
 .legal-link:hover { color: white; }
-.legal-link i { font-size: 0.7rem; color: rgba(255,255,255,0.3); }
+.legal-link svg,
+.legal-link i { font-size: 0.7rem; color: rgba(255,255,255,0.3); flex-shrink: 0; }
 
 /* ── Accordion Icon ── */
 .accordion-icon {
@@ -301,13 +340,7 @@
     transition: transform 0.3s ease;
     margin-left: auto;
     display: none;
-}
-
-/* ── External Link Indicator ── */
-.external-indicator {
-    font-size: 0.65rem;
-    opacity: 0.5;
-    margin-left: 0.25rem;
+    flex-shrink: 0;
 }
 
 /* ── Currency Selector in Footer ── */
@@ -320,8 +353,19 @@
     font-weight: 600;
     font-size: 0.95rem;
     margin-bottom: 0.75rem;
-    display: block;
+    display: flex;
+    align-items: center;
     position: relative;
+    white-space: nowrap;
+}
+.footer-currency-label span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.footer-currency-label svg,
+.footer-currency-label i {
+    flex-shrink: 0;
 }
 .footer-currency-label::after {
     content: '';
@@ -499,7 +543,7 @@
     .company-tagline { font-size: 0.85rem; }
     .company-desc { font-size: 0.8rem; }
     .trust-item { font-size: 0.75rem; }
-    .trust-item i { font-size: 0.85rem; }
+    .trust-item svg, .trust-item i { font-size: 0.85rem; }
     .payment-icon { font-size: 0.7rem; padding: 0.3rem 0.5rem; }
     .legal-link { font-size: 0.75rem; }
     .copyright-text { font-size: 0.75rem; }

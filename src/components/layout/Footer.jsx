@@ -2,8 +2,17 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import logo from "../../assets/long_logo.png";
 import { useCurrency, currencies } from "../../contexts/CurrencyContext";
-import { FaLinkedinIn, FaFacebookF, FaXTwitter, FaInstagram } from "react-icons/fa6";
-import '../../styles/Footer.css'
+import {
+  FaAddressCard, FaApple, FaBell, FaBolt, FaBook, FaBriefcase, FaBuilding,
+  FaCcMastercard, FaCcVisa, FaChartLine, FaCircleCheck, FaChevronDown,
+  FaCloud, FaUpload, FaCode, FaCoins, FaCube, FaEnvelopeOpenText,
+  FaStackExchange, FaLink, FaFacebookF, FaFileContract, FaGlobe,
+  FaGoogle, FaHandshake, FaHeadset, FaCircleInfo, FaInstagram, FaLinkedinIn,
+  FaLock, FaMailchimp, FaNewspaper, FaPaypal, FaRegCopyright, FaRocket,
+  FaSearchengin, FaServer, FaShare, FaShield, FaStar, FaStore, FaTags,
+  FaTruckMoving, FaUser, FaUserGroup, FaUserShield, FaWordpress, FaXTwitter, 
+} from "react-icons/fa6";
+import '../../styles/Footer.css';
 
 const Footer = () => {
   const { currency, setCurrency } = useCurrency();
@@ -94,7 +103,6 @@ const Footer = () => {
     }, 5000);
   };
 
-  // Social links now using react-icons components instead of Font Awesome classes
   const socialLinks = [
     { name: "LinkedIn", Icon: FaLinkedinIn, href: "https://www.linkedin.com/company/wefithostofficial/" },
     { name: "Facebook", Icon: FaFacebookF, href: "https://www.facebook.com/share/19JUwmnhS8/" },
@@ -108,39 +116,39 @@ const Footer = () => {
     <>
       {/* Trust Strip */}
       <div className="trust-strip">
-        <div className="container mx-auto px-4">
+        <div className="w-full max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16">
           <div className="trust-strip-inner">
-            <div className="trust-item"><i className="fas fa-server"></i><span>Global Infrastructure</span></div>
-            <div className="trust-item"><i className="fas fa-bolt"></i><span>NVMe SSD Storage</span></div>
-            <div className="trust-item"><i className="fas fa-shield-alt"></i><span>Free SSL Available</span></div>
-            <div className="trust-item"><i className="fas fa-truck-moving"></i><span>Migration Support Available</span></div>
+            <div className="trust-item"><FaServer /><span>Global Infrastructure</span></div>
+            <div className="trust-item"><FaBolt /><span>NVMe SSD Storage</span></div>
+            <div className="trust-item"><FaShield /><span>Free SSL Available</span></div>
+            <div className="trust-item"><FaTruckMoving /><span>Migration Support Available</span></div>
           </div>
         </div>
       </div>
 
       {/* Footer */}
-      <footer className="mainfooterstart mb-0">
-        <div className="container mx-auto px-4">
+      <footer className="mainfooterstart mb-0 w-full">
+        <div className="w-full max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16">
           <div className="footer-grid">
 
             <div className="footer-column newsletter-section">
               <Link to="/" aria-label="WeFitHost Home">
                 <img src={logo} alt="WeFitHost Africa Logo" className="footer-logo" loading="lazy" />
               </Link>
-              <p className="company-tagline"><i className="fas fa-rocket"></i>Powering African businesses with reliable hosting.</p>
+              <p className="company-tagline"><FaRocket />Powering African businesses with reliable hosting.</p>
               <p className="company-desc">Fast, secure and reliable web hosting for African businesses, agencies, developers and growing websites. WeFitHost Africa provides hosting, domains, cloud infrastructure and business email solutions backed by expert support.</p>
 
               <div className="payment-methods" aria-label="Accepted payment methods">
-                <span className="payment-icon"><i className="fab fa-cc-visa"></i> Visa</span>
-                <span className="payment-icon"><i className="fab fa-cc-mastercard"></i> Mastercard</span>
-                <span className="payment-icon"><i className="fab fa-paypal"></i> PayPal</span>
-                <span className="payment-icon"><i className="fab fa-apple"></i> Apple Pay</span>
-                <span className="payment-icon"><i className="fab fa-google"></i> Google Pay</span>
+                <span className="payment-icon"><FaCcVisa /> Visa</span>
+                <span className="payment-icon"><FaCcMastercard /> Mastercard</span>
+                <span className="payment-icon"><FaPaypal /> PayPal</span>
+                <span className="payment-icon"><FaApple /> Apple Pay</span>
+                <span className="payment-icon"><FaGoogle /> Google Pay</span>
               </div>
 
               <div className="footer-currency">
                 <label className="footer-currency-label" htmlFor="footerCurrency">
-                  <span><i className="fas fa-coins me-2"></i>Currency</span>
+                  <span><FaCoins />Currency</span>
                 </label>
                 <select
                   id="footerCurrency"
@@ -155,8 +163,8 @@ const Footer = () => {
               </div>
 
               <h5 style={{ marginTop: "50px" }} className="footer-heading" role="button" aria-expanded="true" tabIndex="0">
-                <span><i className="fas fa-bell me-2"></i>Stay Updated</span>
-                <i className="fas fa-chevron-down accordion-icon" aria-hidden="true"></i>
+                <span><span className="me-2"><FaBell /></span>Stay Updated</span>
+                <span className="accordion-icon"><FaChevronDown /></span>
               </h5>
               <p className="newsletter-desc">
                 Receive product updates, hosting tips, maintenance notifications and exclusive offers from WeFitHost Africa.
@@ -201,40 +209,40 @@ const Footer = () => {
                   }
                 }}
               >
-                <span><i className="fas fa-server me-2"></i>Hosting</span>
-                <i className="fas fa-chevron-down accordion-icon" aria-hidden="true"></i>
+                <span><span className="me-2"><FaServer /></span>Hosting</span>
+                <span className="accordion-icon"><FaChevronDown /></span>
               </h5>
               <ul className="footer-links">
                 <li>
                   <Link to="/hosting/shared" className="footer-link">
-                    <i className="fas fa-share-alt"></i>Shared Hosting
+                    <FaShare />Shared Hosting
                   </Link>
                 </li>
                 <li>
                   <Link to="/hosting/wordpress" className="footer-link">
-                    <i className="fab fa-wordpress"></i>WordPress Hosting
+                    <FaWordpress />WordPress Hosting
                   </Link>
                 </li>
                 <li>
                   <Link to="/hosting/cloud" className="footer-link">
-                    <i className="fas fa-cloud"></i>Cloud Hosting
+                    <FaCloud />Cloud Hosting
                   </Link>
                 </li>
                 <li>
                   <Link to="/hosting/vps" className="footer-link">
-                    <i className="fas fa-cube"></i>VPS Hosting
+                    <FaCube />VPS Hosting
                   </Link>
                 </li>
                 <li>
                   <a href={`${UK_BASE}/managed-hosting.html`} className="footer-link" target="_blank" rel="noopener noreferrer">
-                    <i className="fas fa-cloud-upload-alt"></i>Managed Hosting
-                    <i className="fas fa-external-link-alt external-indicator"></i>
+                    <FaUpload />Managed Hosting
+                    <span className="external-indicator"><FaLink /></span>
                   </a>
                 </li>
                 <li>
                   <a href={`${UK_BASE}/reseller-hosting.html`} className="footer-link" target="_blank" rel="noopener noreferrer">
-                    <i className="fas fa-store"></i>Reseller Hosting
-                    <i className="fas fa-external-link-alt external-indicator"></i>
+                    <FaStore />Reseller Hosting
+                    <span className="external-indicator"><FaLink /></span>
                   </a>
                 </li>
               </ul>
@@ -254,31 +262,31 @@ const Footer = () => {
                   }
                 }}
               >
-                <span><i className="fas fa-globe me-2"></i>Domains</span>
-                <i className="fas fa-chevron-down accordion-icon" aria-hidden="true"></i>
+                <span><span className="me-2"><FaGlobe /></span>Domains</span>
+                <span className="accordion-icon"><FaChevronDown /></span>
               </h5>
               <ul className="footer-links">
                 <li>
                   <Link to="/domains" className="footer-link">
-                    <i className="fas fa-search"></i>Search Domains
+                    <FaSearchengin />Search Domains
                   </Link>
                 </li>
                 <li>
                   <a href={`${UK_BASE}/domain-transfer.html`} className="footer-link" target="_blank" rel="noopener noreferrer">
-                    <i className="fas fa-exchange-alt"></i>Transfer Domains
-                    <i className="fas fa-external-link-alt external-indicator"></i>
+                    <FaStackExchange />Transfer Domains
+                    <span className="external-indicator"><FaLink /></span>
                   </a>
                 </li>
                 <li>
                   <a href={`${UK_BASE}/domain-pricing.html`} className="footer-link" target="_blank" rel="noopener noreferrer">
-                    <i className="fas fa-tags"></i>Pricing
-                    <i className="fas fa-external-link-alt external-indicator"></i>
+                    <FaTags />Pricing
+                    <span className="external-indicator"><FaLink /></span>
                   </a>
                 </li>
                 <li>
                   <a href={`${UK_BASE}/whois.html`} className="footer-link" target="_blank" rel="noopener noreferrer">
-                    <i className="fas fa-search"></i>WHOIS Lookup
-                    <i className="fas fa-external-link-alt external-indicator"></i>
+                    <FaSearchengin />WHOIS Lookup
+                    <span className="external-indicator"><FaLink /></span>
                   </a>
                 </li>
               </ul>
@@ -298,37 +306,37 @@ const Footer = () => {
                   }
                 }}
               >
-                <span><i className="fas fa-shield-alt me-2"></i>Security</span>
-                <i className="fas fa-chevron-down accordion-icon" aria-hidden="true"></i>
+                <span><span className="me-2"><FaShield /></span>Security</span>
+                <span className="accordion-icon"><FaChevronDown /></span>
               </h5>
               <ul className="footer-links">
                 <li>
                   <Link to="/hosting/ssl" className="footer-link">
-                    <i className="fas fa-lock"></i>SSL Certificates
+                    <FaLock />SSL Certificates
                   </Link>
                 </li>
                 <li>
                   <a href={`${UK_BASE}/website-security.html`} className="footer-link" target="_blank" rel="noopener noreferrer">
-                    <i className="fas fa-shield-alt"></i>Website Security
-                    <i className="fas fa-external-link-alt external-indicator"></i>
+                    <FaShield />Website Security
+                    <span className="external-indicator"><FaLink /></span>
                   </a>
                 </li>
                 <li>
                   <a href={`${UK_BASE}/email-protection.html`} className="footer-link" target="_blank" rel="noopener noreferrer">
-                    <i className="fas fa-envelope-open-text"></i>Email Protection
-                    <i className="fas fa-external-link-alt external-indicator"></i>
+                    <FaEnvelopeOpenText />Email Protection
+                    <span className="external-indicator"><FaLink /></span>
                   </a>
                 </li>
                 <li>
                   <a href={`${UK_BASE}/website-backup.html`} className="footer-link" target="_blank" rel="noopener noreferrer">
-                    <i className="fas fa-cloud-upload-alt"></i>Website Backups
-                    <i className="fas fa-external-link-alt external-indicator"></i>
+                    <FaUpload />Website Backups
+                    <span className="external-indicator"><FaLink /></span>
                   </a>
                 </li>
                 <li>
                   <a href={`${UK_BASE}/email-migration.html`} className="footer-link" target="_blank" rel="noopener noreferrer">
-                    <i className="fas fa-mail-bulk"></i>Email Migration
-                    <i className="fas fa-external-link-alt external-indicator"></i>
+                    <FaMailchimp />Email Migration
+                    <span className="external-indicator"><FaLink /></span>
                   </a>
                 </li>
               </ul>
@@ -348,32 +356,32 @@ const Footer = () => {
                   }
                 }}
               >
-                <span><i className="fas fa-book me-2"></i>Resources</span>
-                <i className="fas fa-chevron-down accordion-icon" aria-hidden="true"></i>
+                <span><span className="me-2"><FaBook /></span>Resources</span>
+                <span className="accordion-icon"><FaChevronDown /></span>
               </h5>
               <ul className="footer-links">
                 <li>
                   <a href={`${UK_BASE}/knowledge-base.html`} className="footer-link" target="_blank" rel="noopener noreferrer">
-                    <i className="fas fa-book"></i>Knowledge Base
-                    <i className="fas fa-external-link-alt external-indicator"></i>
+                    <FaBook />Knowledge Base
+                    <span className="external-indicator"><FaLink /></span>
                   </a>
                 </li>
                 <li>
                   <a href="https://blog.wefithost.com" className="footer-link" target="_blank" rel="noopener noreferrer">
-                    <i className="fas fa-newspaper"></i>Blog
-                    <i className="fas fa-external-link-alt external-indicator"></i>
+                    <FaNewspaper />Blog
+                    <span className="external-indicator"><FaLink /></span>
                   </a>
                 </li>
                 <li>
                   <a href={`${UK_BASE}/sales.html`} className="footer-link" target="_blank" rel="noopener noreferrer">
-                    <i className="fas fa-chart-line"></i>Sales Resources
-                    <i className="fas fa-external-link-alt external-indicator"></i>
+                    <FaChartLine />Sales Resources
+                    <span className="external-indicator"><FaLink /></span>
                   </a>
                 </li>
                 <li>
                   <a href={`${UK_BASE}/api-access.html`} className="footer-link" target="_blank" rel="noopener noreferrer">
-                    <i className="fas fa-code"></i>API Docs
-                    <i className="fas fa-external-link-alt external-indicator"></i>
+                    <FaCode />API Docs
+                    <span className="external-indicator"><FaLink /></span>
                   </a>
                 </li>
               </ul>
@@ -393,14 +401,14 @@ const Footer = () => {
                   }
                 }}
               >
-                <span><i className="fas fa-headset me-2"></i>Support</span>
-                <i className="fas fa-chevron-down accordion-icon" aria-hidden="true"></i>
+                <span><span className="me-2"><FaHeadset /></span>Support</span>
+                <span className="accordion-icon"><FaChevronDown /></span>
               </h5>
               <ul className="footer-links">
                 <li>
                   <a href="https://my.wefithost.com/manage" className="footer-link" target="_blank" rel="noopener noreferrer">
-                    <i className="fas fa-user"></i>Client Area
-                    <i className="fas fa-external-link-alt external-indicator"></i>
+                    <FaUser />Client Area
+                    <span className="external-indicator"><FaLink /></span>
                   </a>
                 </li>
               </ul>
@@ -420,42 +428,42 @@ const Footer = () => {
                   }
                 }}
               >
-                <span><i className="fas fa-building me-2"></i>Company</span>
-                <i className="fas fa-chevron-down accordion-icon" aria-hidden="true"></i>
+                <span><span className="me-2"><FaBuilding /></span>Company</span>
+                <span className="accordion-icon"><FaChevronDown /></span>
               </h5>
               <ul className="footer-links">
                 <li>
                   <Link to="/about" className="footer-link">
-                    <i className="fas fa-info-circle"></i>About
+                    <FaCircleInfo />About
                   </Link>
                 </li>
                 <li>
                   <Link to="/contact" className="footer-link">
-                    <i className="fas fa-address-card"></i>Contact
+                    <FaAddressCard />Contact
                   </Link>
                 </li>
                 <li>
                   <a href={`${UK_BASE}/reviews.html`} className="footer-link" target="_blank" rel="noopener noreferrer">
-                    <i className="fas fa-star"></i>Reviews
-                    <i className="fas fa-external-link-alt external-indicator"></i>
+                    <FaStar />Reviews
+                    <span className="external-indicator"><FaLink /></span>
                   </a>
                 </li>
                 <li>
                   <a href={`${UK_BASE}/partner-program.html`} className="footer-link" target="_blank" rel="noopener noreferrer">
-                    <i className="fas fa-handshake"></i>Partners
-                    <i className="fas fa-external-link-alt external-indicator"></i>
+                    <FaHandshake />Partners
+                    <span className="external-indicator"><FaLink /></span>
                   </a>
                 </li>
                 <li>
                   <a href={`${UK_BASE}/affiliate.html`} className="footer-link" target="_blank" rel="noopener noreferrer">
-                    <i className="fas fa-user-friends"></i>Affiliates
-                    <i className="fas fa-external-link-alt external-indicator"></i>
+                    <FaUserGroup />Affiliates
+                    <span className="external-indicator"><FaLink /></span>
                   </a>
                 </li>
                 <li>
                   <a href={`${UK_BASE}/careers.html`} className="footer-link" target="_blank" rel="noopener noreferrer">
-                    <i className="fas fa-briefcase"></i>Careers
-                    <i className="fas fa-external-link-alt external-indicator"></i>
+                    <FaBriefcase />Careers
+                    <span className="external-indicator"><FaLink /></span>
                   </a>
                 </li>
               </ul>
@@ -467,23 +475,23 @@ const Footer = () => {
 
           <div className="legal-footer">
             <div>
-              <span className="copyright-text"><i className="far fa-copyright"></i> 2026 WeFitHost Africa. All rights reserved.</span>
+              <span className="copyright-text"><FaRegCopyright /> 2026 WeFitHost Africa. All rights reserved.</span>
               <div className="company-info"></div>
             </div>
             <ul className="footer-legal-links">
               <li>
                 <a href={`${UK_BASE}/privacy-policy.html`} className="legal-link" target="_blank" rel="noopener noreferrer">
-                  <i className="fas fa-user-shield"></i>Privacy Policy
+                  <FaUserShield />Privacy Policy
                 </a>
               </li>
               <li>
                 <a href={`${UK_BASE}/terms.html`} className="legal-link" target="_blank" rel="noopener noreferrer">
-                  <i className="fas fa-file-contract"></i>Terms &amp; Conditions
+                  <FaFileContract />Terms &amp; Conditions
                 </a>
               </li>
               <li>
                 <a href={`${UK_BASE}/acceptable-policy.html`} className="legal-link" target="_blank" rel="noopener noreferrer">
-                  <i className="fas fa-check-circle"></i>Acceptable Use Policy
+                  <FaCircleCheck />Acceptable Use Policy
                 </a>
               </li>
             </ul>

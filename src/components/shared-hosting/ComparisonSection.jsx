@@ -68,18 +68,18 @@ const ComparisonSection = () => {
   const data = comparisonData[activeTab];
 
   return (
-    <section id="comparison" className="py-24 bg-[#0f172a]">
+    <section id="comparison" className="py-24 bg-slate-50">
       <div className="max-w-7xl mx-auto px-6">
         
         {/* Header */}
         <div className="text-center mb-16">
-          <span className="inline-flex items-center gap-2 bg-indigo-500/10 text-[#6b63ff] text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full mb-4">
+          <span className="inline-flex items-center gap-2 bg-indigo-50 text-[#6b63ff] text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full mb-4">
             <Server size={14} /> Hosting Comparison
           </span>
-          <h2 className="text-3xl md:text-4xl font-black text-white mb-4 tracking-tight">
+          <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-4 tracking-tight">
             Shared Hosting vs Other Hosting Options
           </h2>
-          <p className="text-slate-400 max-w-xl mx-auto">
+          <p className="text-slate-600 max-w-xl mx-auto">
             Not sure which hosting type is right for you? Here&apos;s how shared hosting compares.
           </p>
         </div>
@@ -93,7 +93,7 @@ const ComparisonSection = () => {
               className={`flex items-center gap-2 px-6 py-3 rounded-lg font-semibold text-sm transition-all ${
                 activeTab === tab.id
                   ? 'bg-[#6b63ff] text-white'
-                  : 'bg-slate-900/50 text-slate-400 border border-slate-800 hover:border-indigo-500/30 hover:text-white'
+                  : 'bg-white text-slate-600 border border-slate-200 hover:border-indigo-500/30 hover:text-slate-900 shadow-sm'
               }`}
             >
               <tab.icon size={16} />
@@ -108,7 +108,7 @@ const ComparisonSection = () => {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3 }}
-          className="overflow-x-auto rounded-xl border border-slate-800 mb-12"
+          className="overflow-x-auto rounded-xl border border-slate-200 mb-12 shadow-sm bg-white"
         >
           <table className="w-full text-sm">
             <thead>
@@ -122,11 +122,11 @@ const ComparisonSection = () => {
                 ))}
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-800">
+            <tbody className="divide-y divide-slate-200">
               {data.rows.map((row, i) => (
-                <tr key={i} className="hover:bg-slate-900/30 transition-colors">
+                <tr key={i} className="hover:bg-slate-50 transition-colors">
                   {row.map((cell, j) => (
-                    <td key={j} className={`p-4 ${j === 0 ? 'text-slate-300 font-semibold' : 'text-slate-400'}`}>
+                    <td key={j} className={`p-4 ${j === 0 ? 'text-slate-900 font-semibold' : 'text-slate-600'}`}>
                       {cell}
                     </td>
                   ))}
@@ -142,12 +142,12 @@ const ComparisonSection = () => {
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="bg-slate-900/50 border border-slate-800 rounded-xl p-6"
+            className="bg-white border border-slate-200 rounded-xl p-6 shadow-sm"
           >
-            <h3 className="text-white font-bold text-lg mb-4">When to choose shared hosting</h3>
+            <h3 className="text-slate-900 font-bold text-lg mb-4">When to choose shared hosting</h3>
             <ul className="space-y-3">
               {whenToChoose.map((item, i) => (
-                <li key={i} className="flex items-start gap-3 text-slate-300 text-sm">
+                <li key={i} className="flex items-start gap-3 text-slate-700 text-sm">
                   <CheckCircle size={16} className="text-emerald-500 mt-0.5 flex-shrink-0" />
                   {item}
                 </li>
@@ -159,12 +159,12 @@ const ComparisonSection = () => {
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="bg-slate-900/50 border border-slate-800 rounded-xl p-6"
+            className="bg-white border border-slate-200 rounded-xl p-6 shadow-sm"
           >
-            <h3 className="text-white font-bold text-lg mb-4">When to consider upgrading</h3>
+            <h3 className="text-slate-900 font-bold text-lg mb-4">When to consider upgrading</h3>
             <ul className="space-y-3">
               {whenToUpgrade.map((item, i) => (
-                <li key={i} className="flex items-start gap-3 text-slate-300 text-sm">
+                <li key={i} className="flex items-start gap-3 text-slate-700 text-sm">
                   <AlertTriangle size={16} className="text-amber-500 mt-0.5 flex-shrink-0" />
                   {item}
                 </li>
@@ -174,12 +174,12 @@ const ComparisonSection = () => {
         </div>
 
         {/* CTA Note */}
-        <p className="text-center text-slate-400 text-sm">
+        <p className="text-center text-slate-600 text-sm">
           Need more power?{' '}
           <a href="/vps-hosting" className="text-[#6b63ff] font-semibold hover:underline">Explore VPS Hosting</a>{' '}
           or{' '}
           <a href="/cloud-hosting" className="text-[#6b63ff] font-semibold hover:underline">Cloud Hosting</a>{' '}
-           or{' '}
+          or{' '}
           <a href="/contact" className="text-[#6b63ff] font-semibold hover:underline">talk to our team</a>{' '}
           and we&apos;ll help you choose.
         </p>

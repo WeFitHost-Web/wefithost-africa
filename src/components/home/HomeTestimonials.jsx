@@ -4,12 +4,11 @@ import { Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { Star } from 'lucide-react';
-import { motion } from 'framer-motion';
 
 const testimonials = [
   {
     sector: 'Marketing & Tech',
-    quote: "Since switching to WeFitHost's managed hosting, our  site loading improved by 60% and we've had zero downtime. Their support team has saved us countless hours troubleshooting WordPress issues.",
+    quote: "Since switching to WeFitHost's managed hosting, our agency site load times dropped by over 60% and we've maintained 100% uptime. Their technical team handles our configurations effortlessly, saving our devs hours of troubleshooting workspace servers.",
     initials: 'OA',
     name: 'Olumide Awosika',
     role: 'Managing Director',
@@ -18,7 +17,7 @@ const testimonials = [
   },
   {
     sector: 'E-commerce Retail',
-    quote: "The automatic updates and security features give me peace of mind. When we had a traffic spike during Black Friday, our site handled it perfectly thanks to their scalable resources.",
+    quote: "The built-in caching and NVMe infrastructure had been able to give me real peace of mind. During our payday holiday sales rush, our storefront didn't glitch or slow down for a second. The server infrastructure scaling handles heavy traffic spikes perfectly.",
     initials: 'CN',
     name: 'Chioma Nwachukwu',
     role: 'Founder',
@@ -27,7 +26,7 @@ const testimonials = [
   },
   {
     sector: 'Media & Publishing',
-    quote: "As someone who's not technical, managed hosting was the perfect choice. The migration was seamless and now I don't have to worry about updates or security it's all handled for me.",
+    quote: "Moving my content site over was completely seamless. I am not a core system administrator, so having their engineers completely migrate my database and handle the daily automated security updates for free keeps my focus strictly on publishing.",
     initials: 'AB',
     name: 'Aminu Bello',
     role: 'Editor & Creator',
@@ -36,7 +35,7 @@ const testimonials = [
   }
 ];
 
-const WPTestimonials = () => {
+const HomeTestimonials = () => {
   return (
     <section className="py-24 bg-[#1e293b]">
       <div className="max-w-7xl mx-auto px-6">
@@ -47,7 +46,7 @@ const WPTestimonials = () => {
             What Our Customers Say
           </h2>
           <p className="text-slate-400 max-w-2xl mx-auto">
-            Don't just take our word for it hear from African businesses and creators that switched to our managed hosting.
+            Don&apos;t just take our word for it—hear from local businesses and creators that switched to our optimized hosting solutions.
           </p>
         </div>
 
@@ -57,7 +56,7 @@ const WPTestimonials = () => {
           spaceBetween={24}
           slidesPerView={1}
           loop={true}
-          autoplay={{ delay: 8000, disableOnInteraction: true }}
+          autoplay={{ delay: 10000, disableOnInteraction: true }}
           pagination={{ clickable: true }}
           breakpoints={{
             768: { slidesPerView: 2 },
@@ -67,13 +66,7 @@ const WPTestimonials = () => {
         >
           {testimonials.map((t, i) => (
             <SwiperSlide key={i} className="h-auto">
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="bg-white rounded-2xl p-6 h-full flex flex-col justify-between border border-slate-700/50"
-              >
+              <div className="bg-white rounded-2xl p-6 h-full flex flex-col justify-between border border-slate-700/50">
                 <div>
                   {/* Top row */}
                   <div className="flex items-center justify-between mb-4">
@@ -88,8 +81,8 @@ const WPTestimonials = () => {
                   </div>
 
                   {/* Quote */}
-                  <p className="text-slate-700 text-sm leading-relaxed mb-6 italic">
-                    "{t.quote}"
+                  <p className="text-slate-700 text-sm leading-relaxed mb-4 italic">
+                    &ldquo;{t.quote}&rdquo;
                   </p>
                 </div>
 
@@ -106,7 +99,7 @@ const WPTestimonials = () => {
                     </p>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             </SwiperSlide>
           ))}
         </Swiper>
@@ -116,4 +109,4 @@ const WPTestimonials = () => {
   );
 };
 
-export default WPTestimonials;
+export default HomeTestimonials;

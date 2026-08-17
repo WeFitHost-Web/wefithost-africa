@@ -5,19 +5,19 @@ import { HelpCircle, ChevronDown } from 'lucide-react';
 const faqs = [
   {
     question: 'Is shared hosting good for beginners?',
-    answer: "Yes shared hosting is the most beginner-friendly hosting option available. WeFitHost manages the server for you, so there's nothing technical to worry about. You get a simple control panel, one-click WordPress installation, and local support whenever you need help."
+    answer: "Yes, shared hosting is the most beginner-friendly hosting option available. WeFitHost manages the server for you, so there's nothing technical to worry about. You get a simple control panel, one-click WordPress installation, and local support whenever you need help."
   },
   {
     question: 'Can I install WordPress?',
-    answer: "Yes. All WeFitHost shared hosting plans include a one-click installer so you can get WordPress running in minutes no technical setup needed."
+    answer: "Yes. All WeFitHost shared hosting plans include a one-click installer so you can get WordPress running in minutes with no technical setup needed."
   },
   {
     question: 'Is email hosting included?',
-    answer: "Yes. Every plan includes professional email accounts at your domain (e.g. hello@yourbusiness.com). The Starter plan includes 5 accounts, and the Business and Enterprise plans include unlimited email accounts."
+    answer: "Yes. Every plan includes professional email accounts at your domain (e.g., hello@yourbusiness.com). The Starter plan includes 5 accounts, and the Business and Enterprise plans include unlimited email accounts."
   },
   {
     question: 'Do I get a free SSL certificate?',
-    answer: "Yes. A free SSL certificate is included on all shared hosting plans. This activates HTTPS on your website and shows the browser padlock to your visitors no extra cost involved."
+    answer: "Yes. A free SSL certificate is included on all shared hosting plans. This activates HTTPS on your website and shows the browser padlock to your visitors with no extra cost involved."
   },
   {
     question: 'Can I upgrade my plan later?',
@@ -33,7 +33,7 @@ const faqs = [
   },
   {
     question: 'What happens if my website grows?',
-    answer: "You can upgrade your shared hosting plan at any time. If your website grows beyond what shared hosting can comfortably support such as consistently high traffic or resource-intensive applications WeFitHost offers VPS and cloud hosting plans to scale into."
+    answer: "You can upgrade your shared hosting plan at any time. If your website grows beyond what shared hosting can comfortably support—such as consistently high traffic or resource-intensive applications—WeFitHost offers VPS and cloud hosting plans to scale into."
   }
 ];
 
@@ -41,18 +41,18 @@ const FAQSection = () => {
   const [openIndex, setOpenIndex] = useState(0);
 
   return (
-    <section id="faq" className="py-24 bg-[#0b1120]">
+    <section id="faq" className="py-24 bg-slate-50">
       <div className="max-w-4xl mx-auto px-6">
         
         {/* Header */}
         <div className="text-center mb-16">
-          <span className="inline-flex items-center gap-2 bg-indigo-500/10 text-[#6b63ff] text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full mb-4">
+          <span className="inline-flex items-center gap-2 bg-indigo-50 text-[#6b63ff] text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full mb-4">
             <HelpCircle size={14} /> FAQ
           </span>
-          <h2 className="text-3xl md:text-4xl font-black text-white mb-4 tracking-tight">
+          <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-4 tracking-tight">
             Frequently Asked Questions
           </h2>
-          <p className="text-slate-400 max-w-xl mx-auto">
+          <p className="text-slate-600 max-w-xl mx-auto">
             Common questions about WeFitHost shared hosting, answered.
           </p>
         </div>
@@ -66,18 +66,18 @@ const FAQSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.05 }}
-              className="bg-slate-900/50 border border-slate-800 rounded-xl overflow-hidden"
+              className="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm"
             >
               <button
                 onClick={() => setOpenIndex(openIndex === i ? -1 : i)}
-                className="w-full flex items-center justify-between p-5 text-left hover:bg-slate-900/50 transition-colors"
+                className="w-full flex items-center justify-between p-5 text-left hover:bg-slate-50 transition-colors"
               >
-                <span className={`font-semibold text-sm ${openIndex === i ? 'text-[#6b63ff]' : 'text-white'}`}>
+                <span className={`font-semibold text-sm ${openIndex === i ? 'text-[#6b63ff]' : 'text-slate-900'}`}>
                   {faq.question}
                 </span>
                 <ChevronDown 
                   size={18} 
-                  className={`text-slate-500 flex-shrink-0 ml-4 transition-transform duration-300 ${openIndex === i ? 'rotate-180 text-[#6b63ff]' : ''}`}
+                  className={`text-slate-400 flex-shrink-0 ml-4 transition-transform duration-300 ${openIndex === i ? 'rotate-180 text-[#6b63ff]' : ''}`}
                 />
               </button>
               
@@ -90,7 +90,7 @@ const FAQSection = () => {
                     transition={{ duration: 0.25 }}
                     className="overflow-hidden"
                   >
-                    <div className="px-5 pb-5 text-slate-400 text-sm leading-relaxed border-t border-slate-800 pt-4">
+                    <div className="px-5 pb-5 text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-4">
                       {faq.answer}
                     </div>
                   </motion.div>

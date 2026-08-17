@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Check, Crown, Tag } from 'lucide-react';
 import { useCurrency, formatPrice } from '../../contexts/CurrencyContext';
@@ -8,7 +8,6 @@ const plans = [
     name: 'WordPress Starter',
     tagline: 'For personal sites and blogs',
     monthlyPrice: 2.25,
-    yearlyPrice: 21.60,
     popular: false,
     features: [
       '1 website',
@@ -30,7 +29,6 @@ const plans = [
     name: 'WordPress Launch',
     tagline: 'For small businesses',
     monthlyPrice: 3.89,
-    yearlyPrice: 37.34,
     popular: false,
     features: [
       '2 Websites',
@@ -52,7 +50,6 @@ const plans = [
     name: 'WordPress Growth',
     tagline: 'For growing businesses',
     monthlyPrice: 6.89,
-    yearlyPrice: 66.14,
     popular: true,
     features: [
       '5 Websites',
@@ -74,7 +71,6 @@ const plans = [
     name: 'WordPress Business',
     tagline: 'For high-traffic sites',
     monthlyPrice: 11.99,
-    yearlyPrice: 115.10,
     popular: false,
     features: [
       '10 Websites',
@@ -95,59 +91,41 @@ const plans = [
 ];
 
 const WPPricing = () => {
-  const [isYearly, setIsYearly] = useState(false);
-
   return (
     <section id="pricing" className="py-24 bg-slate-50">
       <div className="max-w-7xl mx-auto px-6">
 
         {/* Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-16">
           <span className="inline-flex items-center gap-2 bg-indigo-500/10 text-[#6b63ff] text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full mb-4">
             <Tag size={14} /> Pricing Plans
           </span>
           <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-4 tracking-tight">
             Simple, Transparent Pricing
           </h2>
-          <p className="text-slate-500 max-w-xl mx-auto mb-8">
+          <p className="text-slate-500 max-w-xl mx-auto">
             No hidden fees. Cancel anytime. Choose the plan that fits your WordPress journey.
           </p>
-
-          {/* Toggle */}
-          <div className="inline-flex bg-white p-1 rounded-xl border border-slate-200 shadow-sm">
-            <button 
-              onClick={() => setIsYearly(false)}
-              className={`px-6 py-2.5 rounded-lg text-sm font-bold transition-all ${!isYearly ? 'bg-[#6b63ff] text-white shadow-md' : 'text-slate-500 hover:text-slate-900'}`}
-            >
-              Monthly
-            </button>
-            <button 
-              onClick={() => setIsYearly(true)}
-              className={`px-6 py-2.5 rounded-lg text-sm font-bold transition-all ${isYearly ? 'bg-[#6b63ff] text-white shadow-md' : 'text-slate-500 hover:text-slate-900'}`}
-            >
-              Yearly <span className="text-xs opacity-80">(-20%)</span>
-            </button>
-          </div>
         </div>
 
         {/* Desktop Grid */}
         <div className="hidden lg:grid lg:grid-cols-4 gap-6">
           {plans.map((plan, i) => (
-            <PricingCard key={i} plan={plan} isYearly={isYearly} index={i} />
+            <PricingCard key={i} plan={plan} index={i} />
           ))}
         </div>
 
         {/* Tablet Grid */}
         <div className="hidden md:grid md:grid-cols-2 lg:hidden gap-6">
           {plans.map((plan, i) => (
-            <PricingCard key={i} plan={plan} isYearly={isYearly} index={i} />
+            <PricingCard key={i} plan={plan} index={i} />
           ))}
         </div>
 
         {/* Mobile: Stacked */}
         <div className="md:hidden space-y-6">
           {plans.map((plan, i) => (
-            <PricingCard key={i} plan={plan} isYearly={isYearly} index={i} />
+            <PricingCard key={i} plan={plan} index={i} />
           ))}
         </div>
 
@@ -161,10 +139,8 @@ const WPPricing = () => {
   );
 };
 
-const PricingCard = ({ plan, isYearly, index }) => {
-  const { currency } = useCurrency(); // <--- Access currency directly from context
-  const price = isYearly ? plan.yearlyPrice : plan.monthlyPrice;
-  const period = isYearly ? '/yr' : '/mo';
+const PricingCard = ({ plan, index }) => {
+  const { currency } = useCurrency();
 
   return (
     <motion.div
@@ -191,16 +167,10 @@ const PricingCard = ({ plan, isYearly, index }) => {
         <div className="mt-5 mb-6">
           <div className="flex items-baseline gap-1">
             <span className="text-4xl font-black text-slate-900">
-              {/* Pass the currency object instead of the string 'GBP' */}
-              {formatPrice(price, currency)}
+              {formatPrice(plan.monthlyPrice, currency)}
             </span>
-            <span className="text-slate-400 text-sm font-medium">{period}</span>
+            <span className="text-slate-400 text-sm font-medium">/mo</span>
           </div>
-          {isYearly && (
-            <p className="text-xs text-emerald-600 font-medium mt-1">
-              Save {formatPrice((plan.monthlyPrice * 12) - plan.yearlyPrice, currency)} per year
-            </p>
-          )}
         </div>
 
         <ul className="space-y-3 mb-8">

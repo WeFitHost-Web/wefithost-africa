@@ -13,10 +13,10 @@ const SharedHosting = () => {
   return (
     <div className="bg-[#0b1120] min-h-screen">
       <SharedHero />
-      <WhatIsSection />
+     <PricingSection />
       <FeaturesSlider />
       <ComparisonSection />
-      <PricingSection />
+      
       <WhoForSection />
       <TestimonialsSection />
       <FAQSection />
