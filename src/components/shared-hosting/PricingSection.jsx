@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper/modules';
@@ -12,7 +12,6 @@ const plans = [
     name: 'Shared Hosting Starter',
     tagline: 'Best for personal websites, portfolios, and blogs',
     monthlyPrice: 3.99,
-    yearlyPrice: 3.19, // ~20% off
     features: [
       { text: '1 Website', included: true },
       { text: '10GB SSD Storage', included: true },
@@ -31,7 +30,6 @@ const plans = [
     name: 'Shared Hosting Business',
     tagline: 'Best for small businesses and growing websites',
     monthlyPrice: 6.99,
-    yearlyPrice: 5.59,
     features: [
       { text: 'Unlimited Websites', included: true },
       { text: '100GB SSD Storage', included: true },
@@ -50,7 +48,6 @@ const plans = [
     name: 'Shared Hosting Enterprise',
     tagline: 'Best for high-traffic websites and multiple projects',
     monthlyPrice: 9.99,
-    yearlyPrice: 7.99,
     features: [
       { text: 'Unlimited Websites', included: true },
       { text: 'Unlimited SSD Storage', included: true },
@@ -68,8 +65,6 @@ const plans = [
 ];
 
 const PricingSection = () => {
-  const [isYearly, setIsYearly] = useState(false);
-
   return (
     <section id="pricing" className="py-24 bg-slate-50">
       <div className="max-w-7xl mx-auto px-6">
@@ -82,31 +77,15 @@ const PricingSection = () => {
           <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-4 tracking-tight">
             Shared Hosting Plans
           </h2>
-          <p className="text-slate-600 max-w-xl mx-auto mb-8">
+          <p className="text-slate-600 max-w-xl mx-auto">
             Simple, transparent pricing pick the plan that fits your website.
           </p>
-
-          {/* Toggle */}
-          <div className="inline-flex bg-slate-200 p-1 rounded-xl border border-slate-300">
-            <button 
-              onClick={() => setIsYearly(false)}
-              className={`px-6 py-2 rounded-lg text-sm font-bold transition-all ${!isYearly ? 'bg-[#6b63ff] text-white' : 'text-slate-600 hover:text-slate-900'}`}
-            >
-              Monthly
-            </button>
-            <button 
-              onClick={() => setIsYearly(true)}
-              className={`px-6 py-2 rounded-lg text-sm font-bold transition-all ${isYearly ? 'bg-[#6b63ff] text-white' : 'text-slate-600 hover:text-slate-900'}`}
-            >
-              Yearly <span className="text-xs opacity-80">(-20%)</span>
-            </button>
-          </div>
         </div>
 
         {/* Pricing Cards - Desktop Grid */}
         <div className="hidden md:grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {plans.map((plan, i) => (
-            <PricingCard key={i} plan={plan} isYearly={isYearly} index={i} />
+            <PricingCard key={i} plan={plan} index={i} />
           ))}
         </div>
 
@@ -122,7 +101,7 @@ const PricingSection = () => {
           >
             {plans.map((plan, i) => (
               <SwiperSlide key={i}>
-                <PricingCard plan={plan} isYearly={isYearly} index={i} />
+                <PricingCard plan={plan} index={i} />
               </SwiperSlide>
             ))}
           </Swiper>
@@ -133,9 +112,8 @@ const PricingSection = () => {
   );
 };
 
-const PricingCard = ({ plan, isYearly, index }) => {
+const PricingCard = ({ plan, index }) => {
   const { currency } = useCurrency();
-  const price = isYearly ? plan.yearlyPrice : plan.monthlyPrice;
 
   return (
     <motion.div
@@ -167,11 +145,11 @@ const PricingCard = ({ plan, isYearly, index }) => {
       <div className="p-6">
         <div className="text-center mb-6">
           <div className="text-4xl font-black text-slate-900">
-            {formatPrice(price, currency)}
+            {formatPrice(plan.monthlyPrice, currency)}
             <span className="text-lg text-slate-500 font-normal">/mo</span>
           </div>
           <p className="text-slate-400 text-xs mt-1">
-            {isYearly ? 'Billed annually' : 'Billed monthly'}
+            Billed monthly
           </p>
         </div>
 

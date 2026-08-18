@@ -34,10 +34,7 @@ const VPSHero = () => {
           transition={{ duration: 0.6 }}
           className="flex flex-col items-center"
         >
-          {/* Badge */}
-          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6 border border-indigo-500/20 bg-slate-900/60 backdrop-blur-md text-indigo-400 text-xs font-black uppercase tracking-[0.25em]">
-            Low Latency Africa
-          </span>
+         
 
           <h1 className="text-5xl md:text-7xl font-black text-white leading-[1.05] tracking-tight mb-6 drop-shadow-md">
             Raw Iron. <br />
@@ -69,7 +66,7 @@ const VPSHero = () => {
           </div>
 
           {/* Trust ribbon */}
-          <div className="border-t border-white/15 pt-6 w-full max-w-2xl">
+          {/* <div className="border-t border-white/15 pt-6 w-full max-w-2xl">
             <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
               {[
                 "99.99% Uptime SLA",
@@ -85,7 +82,7 @@ const VPSHero = () => {
                 </div>
               ))}
             </div>
-          </div>
+          </div> */}
         </motion.div>
       </div>
     </section>

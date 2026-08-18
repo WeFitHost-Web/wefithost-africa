@@ -33,7 +33,7 @@ const faqs = [
   },
   {
     question: 'What happens if my website grows?',
-    answer: "You can upgrade your shared hosting plan at any time. If your website grows beyond what shared hosting can comfortably support—such as consistently high traffic or resource-intensive applications—WeFitHost offers VPS and cloud hosting plans to scale into."
+    answer: "You can upgrade your shared hosting plan at any time. If your website grows beyond what shared hosting can comfortably support such as consistently high traffic or resource-intensive applications. WeFitHost offers VPS and cloud hosting plans to scale into."
   }
 ];
 

@@ -1,6 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MainLayout from "./components/layout/MainLayout";
 import { CurrencyProvider } from "./contexts/CurrencyContext";
+import ScrollToTop from "./components/ScrollToTop";
+import UnderDevelopment from "./components/UnderDevelopment";
 
 // Import Pages
 import Home from "./pages/Home";
@@ -19,22 +21,39 @@ import DomainSearch from "./pages/DomainSearch";
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <CurrencyProvider>
         <Routes>
           <Route path="/" element={<MainLayout />}>
-            {/* Home Page [cite: 28] */}
+            {/* Home Page */}
             <Route index element={<Home />} />
 
-            {/* Hosting Routes  */}
+            {/* Hosting Routes */}
             <Route path="hosting">
               <Route index element={<Hosting />} />
               <Route path="shared" element={<SharedHosting />} />
               <Route path="wordpress" element={<WordPressHosting />} />
               <Route path="vps" element={<VPSHosting />} />
               <Route path="cloud" element={<CloudHosting />} />
+              <Route
+                path="email"
+                element={<UnderDevelopment pageName="Business Email Hosting" />}
+              />
             </Route>
 
-            {/* Core Marketing Pages [cite: 34-38] */}
+            {/* Direct Email Route (if accessed directly via /email) */}
+            <Route
+              path="email"
+              element={<UnderDevelopment pageName="Professional Email Services" />}
+            />
+
+            {/* Pricing Route */}
+            <Route
+              path="pricing"
+              element={<UnderDevelopment pageName="Plans & Pricing" />}
+            />
+
+            {/* Core Marketing Pages */}
             <Route path="domains" element={<Domains />} />
             <Route path="services" element={<Services />} />
             <Route path="about" element={<About />} />
@@ -42,16 +61,21 @@ function App() {
             <Route path="marketing" element={<Marketing />} />
             <Route path="domain-search" element={<DomainSearch />} />
 
-            {/* Resource Routes [cite: 36, 57-60] */}
-            <Route path="resources" element={<div>Resources Overview</div>} />
-            <Route path="blog" element={<div>Blog Page</div>} />
+            {/* Resource Routes */}
+            <Route
+              path="resources"
+              element={<UnderDevelopment pageName="Resources & Guides" />}
+            />
+            <Route
+              path="blog"
+              element={<UnderDevelopment pageName="Blog & News" />}
+            />
           </Route>
 
-       
-          <Route
+          {/* <Route
             path="login"
             element={<div>Redirecting to Existing System...</div>}
-          />
+          /> */}
         </Routes>
       </CurrencyProvider>
     </BrowserRouter>

@@ -41,13 +41,7 @@ const WPHero = () => {
           transition={{ duration: 0.6 }}
           className="flex flex-col items-center"
         >
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6 border border-indigo-500/20 bg-slate-900/60 backdrop-blur-md">
-            <Layout size={16} className="text-[#6b63ff]" />
-            <span className="text-xs font-bold text-indigo-300 uppercase tracking-widest">
-              Managed WordPress Hosting
-            </span>
-          </div>
+         
 
           <h1 className="text-4xl md:text-6xl font-black text-white leading-[1.1] mb-6 tracking-tight drop-shadow-md">
             Blazing Fast WordPress Hosting <br />

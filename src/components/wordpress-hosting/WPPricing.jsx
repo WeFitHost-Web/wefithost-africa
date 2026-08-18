@@ -85,7 +85,7 @@ const plans = [
       'Advanced Security'
     ],
     cta: 'Get Started',
-    ctaStyle: 'solid',
+    ctaStyle: 'outline',
     orderUrl: 'https://my.wefithost.com/domain-required?p=277091-5-lhr&t=1'
   }
 ];
@@ -129,9 +129,9 @@ const WPPricing = () => {
           ))}
         </div>
 
-        <p className="text-center text-slate-400 text-sm mt-10">
+        <p className="text-center text-slate-700 text-lg mt-10">
           Need custom solutions?{' '}
-          <a href="/contact" className="text-[#6b63ff] font-semibold hover:underline">Contact our sales team</a>
+          <a href="https://wefithost.com/contact-us" className="text-[#6b63ff] font-semibold hover:underline">Contact our sales team</a>
         </p>
 
       </div>
@@ -148,43 +148,46 @@ const PricingCard = ({ plan, index }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.08 }}
-      className={`relative bg-white border rounded-2xl overflow-hidden transition-all hover:-translate-y-1 ${
+      className={`relative bg-white border rounded-2xl overflow-hidden transition-all hover:-translate-y-1 flex flex-col h-full ${
         plan.popular 
           ? 'border-[#6b63ff] shadow-lg shadow-indigo-500/10 ring-1 ring-[#6b63ff]/20' 
           : 'border-slate-200 hover:border-indigo-300 hover:shadow-lg'
       }`}
     >
       {plan.popular && (
-        <div className="absolute top-0 left-0 right-0 bg-[#6b63ff] text-white text-center text-xs font-bold py-1.5 uppercase tracking-wider">
+        <div className="absolute top-0 left-0 right-0 bg-[#6b63ff] text-white text-center text-xs font-bold py-1.5 uppercase tracking-wider z-10">
           <Crown size={12} className="inline mr-1" /> Most Popular
         </div>
       )}
 
-      <div className={`p-6 ${plan.popular ? 'pt-10' : ''}`}>
-        <h3 className="text-slate-900 font-bold text-lg">{plan.name}</h3>
-        <p className="text-slate-500 text-sm mt-1">{plan.tagline}</p>
+      {/* Added flex-col, h-full, and justify-between to keep CTAs aligned */}
+      <div className={`p-6 flex flex-col justify-between flex-1 ${plan.popular ? 'pt-10' : ''}`}>
+        <div>
+          <h3 className="text-slate-900 font-bold text-lg">{plan.name}</h3>
+          <p className="text-slate-500 text-sm mt-1">{plan.tagline}</p>
 
-        <div className="mt-5 mb-6">
-          <div className="flex items-baseline gap-1">
-            <span className="text-4xl font-black text-slate-900">
-              {formatPrice(plan.monthlyPrice, currency)}
-            </span>
-            <span className="text-slate-400 text-sm font-medium">/mo</span>
+          <div className="mt-5 mb-6">
+            <div className="flex items-baseline gap-1">
+              <span className="text-4xl font-black text-slate-900">
+                {formatPrice(plan.monthlyPrice, currency)}
+              </span>
+              <span className="text-slate-400 text-sm font-medium">/mo</span>
+            </div>
           </div>
-        </div>
 
-        <ul className="space-y-3 mb-8">
-          {plan.features.map((feat, i) => (
-            <li key={i} className="flex items-start gap-2.5 text-sm text-slate-600">
-              <Check size={16} className="text-emerald-500 mt-0.5 flex-shrink-0" />
-              {feat}
-            </li>
-          ))}
-        </ul>
+          <ul className="space-y-3 mb-8">
+            {plan.features.map((feat, i) => (
+              <li key={i} className="flex items-start gap-2.5 text-sm text-slate-600">
+                <Check size={16} className="text-emerald-500 mt-0.5 flex-shrink-0" />
+                {feat}
+              </li>
+            ))}
+          </ul>
+        </div>
 
         <a 
           href={plan.orderUrl}
-          className={`block text-center py-3 rounded-xl font-bold text-sm transition-all ${
+          className={`block text-center py-3 rounded-xl font-bold text-sm transition-all mt-auto ${
             plan.ctaStyle === 'solid'
               ? 'bg-[#6b63ff] text-white hover:bg-[#5a52e0] shadow-md shadow-indigo-500/20'
               : 'border-2 border-[#6b63ff] text-[#6b63ff] hover:bg-[#6b63ff] hover:text-white'
@@ -196,5 +199,4 @@ const PricingCard = ({ plan, index }) => {
     </motion.div>
   );
 };
-
 export default WPPricing;

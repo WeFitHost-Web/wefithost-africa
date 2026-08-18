@@ -77,12 +77,12 @@ const Navbar = () => {
                     </Link>
                   </div>
 
-                  <div className="bg-indigo-50 p-6 rounded-2xl border border-indigo-100">
+                  {/* <div className="bg-indigo-50 p-6 rounded-2xl border border-indigo-100">
                     <p className="text-sm text-indigo-600 font-bold italic">Launch Special</p>
                     <h5 className="text-slate-900 font-bold mt-2">Get 20% off your first year!</h5>
                     <p className="text-sm text-slate-600 mt-2 leading-relaxed">Available for all Shared and WP plans when paying in local currencies.</p>
                     <button className="mt-4 text-sm font-bold text-indigo-600 hover:underline">See all offers →</button>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>
@@ -97,11 +97,11 @@ const Navbar = () => {
 
         {/* ACTIONS & HAMBURGER */}
         <div className="flex items-center space-x-4 md:space-x-6">
-          <Link to="/login" className="hidden md:flex items-center text-sm font-semibold hover:text-white transition-colors">
+          <Link to="https://my.wefithost.com/login" className="hidden md:flex items-center text-sm font-semibold hover:text-white transition-colors">
             Log In
           </Link>
           <button className="hidden md:block bg-indigo-600 hover:bg-indigo-500 text-white px-6 py-2.5 rounded-xl text-sm font-bold shadow-lg shadow-indigo-900/40 transition-all transform active:scale-95">
-            Sign Up
+            <Link to="https://my.wefithost.com/manage">Sign Up</Link>
           </button>
 
           {/* MOBILE HAMBURGER BUTTON */}

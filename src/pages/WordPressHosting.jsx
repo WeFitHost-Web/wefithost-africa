@@ -18,7 +18,7 @@ const WordPressHosting = () => {
     <div className="overflow-x-hidden">
       <WPHero />
 
-      <WPStats />
+      {/* <WPStats /> */}
 
       <WPPricing />
 
