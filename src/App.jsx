@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import MainLayout from "./components/layout/MainLayout";
 import { CurrencyProvider } from "./contexts/CurrencyContext";
 import ScrollToTop from "./components/ScrollToTop";
@@ -41,7 +41,7 @@ function App() {
               />
             </Route>
 
-            {/* Direct Email Route (if accessed directly via /email) */}
+            {/* Direct Email Route */}
             <Route
               path="email"
               element={<UnderDevelopment pageName="Professional Email Services" />}
@@ -55,11 +55,13 @@ function App() {
 
             {/* Core Marketing Pages */}
             <Route path="domains" element={<Domains />} />
-            <Route path="services" element={<Services />} />
+            
             <Route path="about" element={<About />} />
             <Route path="contact" element={<Contact />} />
             <Route path="marketing" element={<Marketing />} />
             <Route path="domain-search" element={<DomainSearch />} />
+
+            <Route path="services" element={<UnderDevelopment pageName="Services" />} />
 
             {/* Resource Routes */}
             <Route
@@ -70,12 +72,13 @@ function App() {
               path="blog"
               element={<UnderDevelopment pageName="Blog & News" />}
             />
+
+            {/* Catch-all route inside layout */}
+            <Route path="*" element={<Navigate to="/" replace />} />
           </Route>
 
-          {/* <Route
-            path="login"
-            element={<div>Redirecting to Existing System...</div>}
-          /> */}
+          {/* Global catch-all route for any top-level unmatched path */}
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </CurrencyProvider>
     </BrowserRouter>

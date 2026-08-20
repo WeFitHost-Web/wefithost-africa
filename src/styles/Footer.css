@@ -347,26 +347,35 @@
 .footer-currency {
     margin-top: 1.5rem;
     min-width: 0;
+    display: flex;
+    flex-wrap: wrap; /* Allows label and select to stack when space is limited */
+    align-items: flex-start;
+    gap: 0.75rem;
 }
+
 .footer-currency-label {
     color: white;
     font-weight: 600;
     font-size: 0.95rem;
-    margin-bottom: 0.75rem;
     display: flex;
     align-items: center;
     position: relative;
     white-space: nowrap;
+    width: 100%; /* Ensures label stays on its own top row when wrapping */
+    margin-bottom: 0.25rem;
 }
+
 .footer-currency-label span {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
 }
+
 .footer-currency-label svg,
 .footer-currency-label i {
     flex-shrink: 0;
 }
+
 .footer-currency-label::after {
     content: '';
     position: absolute;
@@ -377,6 +386,7 @@
     background: #4f46e5;
     border-radius: 1px;
 }
+
 .footer-currency-select {
     width: 100%;
     max-width: 100%;
@@ -492,18 +502,25 @@
     .footer-links li { margin-bottom: 0.5rem; }
     .footer-link { font-size: 0.875rem; padding: 0.35rem 0; }
 
-    /* Newsletter always open */
-    .newsletter-section .company-desc,
-    .newsletter-section .newsletter-desc,
-    .newsletter-section .newsletter-group,
-    .newsletter-section .newsletter-privacy,
-    .newsletter-section .social-icons,
-    .newsletter-section .payment-methods,
-    .newsletter-section .footer-currency {
-        display: flex !important;
-        max-height: none !important;
-        padding: 0 !important;
-    }
+    /* Update this specific block in your mobile media query */
+.newsletter-section .company-desc,
+.newsletter-section .newsletter-desc,
+.newsletter-section .newsletter-group,
+.newsletter-section .newsletter-privacy,
+.newsletter-section .social-icons,
+.newsletter-section .payment-methods {
+    display: flex !important;
+    max-height: none !important;
+    padding: 0 !important;
+}
+
+/* Give footer-currency its own flex definition to retain wrapping on mobile */
+.newsletter-section .footer-currency {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    max-height: none !important;
+    padding: 0 !important;
+}
     .newsletter-section .footer-heading {
         cursor: default;
         pointer-events: none;

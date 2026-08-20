@@ -80,7 +80,7 @@ const CloudPricing = () => {
         />
 
         {/* Quick-start plan carousel */}
-        <div className="mt-24 relative">
+        <div className="mt-24 relative px-0 sm:px-6">
           <h3 className="text-2xl md:text-3xl font-black text-white mb-8 tracking-tight text-center lg:text-left">
             Or Choose a Ready-Made Tier
           </h3>
@@ -95,7 +95,17 @@ const CloudPricing = () => {
               768: { slidesPerView: 2 },
               1280: { slidesPerView: 4 },
             }}
-            className="!pt-6 !pb-14 !px-4 sm:!px-10 [&_.swiper-button-prev]:!left-0 [&_.swiper-button-next]:!right-0 [&_.swiper-button-prev]:!text-indigo-400 [&_.swiper-button-next]:!text-indigo-400 [&_.swiper-pagination-bullet]:!bg-indigo-400"
+            className="!pt-6 !pb-14 !px-8 sm:!px-12 
+              [&_.swiper-button-prev]:!hidden sm:[&_.swiper-button-prev]:!flex
+              [&_.swiper-button-next]:!hidden sm:[&_.swiper-button-next]:!flex
+              [&_.swiper-button-prev]:!-left-2 sm:[&_.swiper-button-prev]:!-left-4
+              [&_.swiper-button-next]:!-right-2 sm:[&_.swiper-button-next]:!-right-4
+              [&_.swiper-button-prev]:!w-8 [&_.swiper-button-prev]:!h-8
+              [&_.swiper-button-next]:!w-8 [&_.swiper-button-next]:!h-8
+              [&_.swiper-button-prev::after]:!text-sm [&_.swiper-button-next::after]:!text-sm
+              [&_.swiper-button-prev::after]:!font-bold [&_.swiper-button-next::after]:!font-bold
+              [&_.swiper-button-prev]:!text-indigo-400 [&_.swiper-button-next]:!text-indigo-400
+              [&_.swiper-pagination-bullet]:!bg-indigo-400"
           >
             {quickPlans.map((plan, i) => (
               <SwiperSlide key={i} className="h-auto">
