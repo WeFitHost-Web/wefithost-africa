@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { 
   Mail, MessageSquare, Phone, Globe2, 
@@ -42,6 +43,11 @@ const ContactMethod = ({ icon: Icon, title, detail, availability }) => (
 const Contact = () => {
   return (
     <div className="font-sans selection:bg-indigo-500/30">
+      <Helmet>
+        <title>Contact Wefithost Africa | 24/7 Support for Web Hosting & Domains</title>
+        <meta name="description" content="Contact Wefithost Africa for 24/7 hosting support, sales inquiries, and technical assistance. Reach us via email, WhatsApp, or our help center across Africa." />
+        <link rel="canonical" href="https://africa.wefithost.com/contact" />
+      </Helmet>
       
       {/* 1. HERO SECTION (Navy) */}
       <section className="relative pt-32 pb-20 bg-[#0b1120] text-white overflow-hidden flex items-center min-h-[60vh]">

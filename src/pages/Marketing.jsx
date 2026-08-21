@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { 
   TrendingUp, Search, MousePointer2, Share2, 
@@ -36,6 +37,11 @@ const Marketing = () => {
 
   return (
     <div className="bg-[#0b1120] text-slate-100 selection:bg-indigo-500/30">
+      <Helmet>
+        <title>Digital Marketing Africa | SEO, PPC & Social Media Marketing | Wefithost Africa</title>
+        <meta name="description" content="Scale your African business with Wefithost Africa's digital marketing services. Localized SEO, PPC management, social media growth and mobile-first strategies." />
+        <link rel="canonical" href="https://africa.wefithost.com/marketing" />
+      </Helmet>
       
       {/* HERO SECTION - Bluehost Structure x Hostinger UI */}
       <section className="relative pt-32 pb-20 overflow-hidden">

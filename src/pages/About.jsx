@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { 
   Users, Globe2, Rocket, Heart, 
@@ -31,6 +32,11 @@ const ValueCard = ({ icon: Icon, title, desc }) => (
 const About = () => {
   return (
     <div className="font-sans overflow-x-hidden selection:bg-indigo-500/30">
+      <Helmet>
+        <title>About Wefithost Africa | Empowering African Businesses with Digital Infrastructure</title>
+        <meta name="description" content="Learn about Wefithost Africa's mission to democratize digital growth across Africa through reliable, affordable hosting and marketing infrastructure. 5k+ businesses, 12 countries." />
+        <link rel="canonical" href="https://africa.wefithost.com/about" />
+      </Helmet>
       
       {/* 1. HERO SECTION (Navy) */}
       <section className="relative pt-32 pb-24 bg-[#0b1120] text-white overflow-hidden min-h-[70vh] flex items-center">
