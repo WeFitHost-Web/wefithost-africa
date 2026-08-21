@@ -1,5 +1,5 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
+import { useSEO } from '../hooks/useSEO';
 import SharedHero from '../components/shared-hosting/SharedHero';
 import WhatIsSection from '../components/shared-hosting/WhatIsSection';
 import FeaturesSlider from '../components/shared-hosting/FeaturesSlider';
@@ -11,13 +11,14 @@ import FAQSection from '../components/shared-hosting/FAQSection';
 import CTASection from '../components/shared-hosting/CTASection';
 
 const SharedHosting = () => {
+  useSEO({
+    title: 'Shared Hosting Africa | Affordable Web Hosting Plans | Wefithost Africa',
+    description: 'Wefithost Africa shared hosting plans: fast, secure and affordable hosting for African businesses. Free SSL, cPanel and 24/7 support.',
+    canonical: 'https://africa.wefithost.com/hosting/shared'
+  });
+
   return (
     <div className="bg-[#0b1120] min-h-screen">
-      <Helmet>
-        <title>Shared Hosting Africa | Affordable Web Hosting Plans | Wefithost Africa</title>
-        <meta name="description" content="Wefithost Africa shared hosting plans: fast, secure and affordable hosting for African businesses. Free SSL, cPanel and 24/7 support." />
-        <link rel="canonical" href="https://africa.wefithost.com/hosting/shared" />
-      </Helmet>
       <SharedHero />
      <PricingSection />
       <FeaturesSlider />

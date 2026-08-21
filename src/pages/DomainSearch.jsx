@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Helmet } from 'react-helmet-async';
+import { useSEO } from '../hooks/useSEO';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useCurrency, formatPrice } from "../contexts/CurrencyContext";
 import { TLDPricingCard } from '../components/TLDPricingCard';
@@ -28,6 +28,12 @@ const DomainSearchPage = () => {
   const [query, setQuery] = useState("");
   const [isSearching, setIsSearching] = useState(false);
   const [searchResults, setSearchResults] = useState(null);
+
+  useSEO({
+    title: 'Domain Search Africa | Find & Register Domain Names | Wefithost Africa',
+    description: 'Search and register domain names in Africa with Wefithost Africa. Check availability for .com.ng, .co.ke, .africa and more.',
+    canonical: 'https://africa.wefithost.com/domain-search'
+  });
 
   useEffect(() => {
     // 1. If input is cleared, reset to show popular TLDs
@@ -58,11 +64,6 @@ const DomainSearchPage = () => {
 
   return (
     <div className="bg-[#0b1120] min-h-screen text-slate-100 pt-32 pb-20 font-sans">
-      <Helmet>
-        <title>Domain Search Africa | Find & Register Domain Names | Wefithost Africa</title>
-        <meta name="description" content="Search and register domain names in Africa with Wefithost Africa. Check availability for .com.ng, .co.ke, .africa and more." />
-        <link rel="canonical" href="https://africa.wefithost.com/domain-search" />
-      </Helmet>
       <div className="max-w-7xl mx-auto px-6">
         
         {/* Search Header */}

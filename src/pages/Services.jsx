@@ -1,5 +1,5 @@
 import React from "react";
-import { Helmet } from "react-helmet-async";
+import { useSEO } from "../hooks/useSEO";
 import { motion } from "framer-motion";
 import {
   Search,
@@ -22,6 +22,12 @@ import { SectionHeader } from "../components/SectionHeader";
 
 const Services = () => {
   const { currency } = useCurrency();
+
+  useSEO({
+    title: 'Digital Marketing Services Africa | SEO, PPC, Social Media | Wefithost Africa',
+    description: 'Wefithost Africa digital marketing services: SEO optimization, PPC advertising, social media management, content creation and email marketing for African businesses.',
+    canonical: 'https://africa.wefithost.com/services'
+  });
 
   const services = [
     {
