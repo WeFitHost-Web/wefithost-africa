@@ -176,14 +176,14 @@ const Navbar = () => {
               
               <div className="mt-8 space-y-4">
                 <Link 
-                  to="/login" 
+                  to="https://my.wefithost.com/login" 
                   onClick={closeMenu}
                   className="block w-full text-center py-4 rounded-xl border border-slate-700 font-bold text-slate-200"
                 >
                   Log In
                 </Link>
                 <Link 
-                  to="/signup" 
+                  to="https://my.wefithost.com/manage" 
                   onClick={closeMenu}
                   className="block w-full text-center py-4 rounded-xl bg-indigo-600 font-bold text-white shadow-xl shadow-indigo-900/20"
                 >
