@@ -61,7 +61,7 @@ function App() {
             <Route path="marketing" element={<Marketing />} />
             <Route path="domain-search" element={<DomainSearch />} />
 
-            <Route path="services" element={<UnderDevelopment pageName="Services" />} />
+            <Route path="services" element={<Services />} />
 
             {/* Resource Routes */}
             <Route

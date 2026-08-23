@@ -187,7 +187,7 @@ const Navbar = () => {
                   onClick={closeMenu}
                   className="block w-full text-center py-4 rounded-xl bg-indigo-600 font-bold text-white shadow-xl shadow-indigo-900/20"
                 >
-                  Create Account
+                  Sign Up
                 </Link>
               </div>
             </div>
