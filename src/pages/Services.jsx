@@ -3,8 +3,8 @@ import ServicesHero from '../components/services/ServicesHero';
 import ServicesGrid from '../components/services/ServicesGrid';
 import ServicesProcess from '../components/services/ServicesProcess';
 import ServicesTestimonials from '../components/services/ServicesTestimonials';
-import ServicesFAQ from '../components/services/ServicesFAQ';
-import ServicesCTA from '../components/services/ServicesCTA';
+import ServicesFAQ from '../components/services/ServicesFaq';
+import ServicesCTA from '../components/services/ServicesCta';
 
 const Services = () => {
   return (
